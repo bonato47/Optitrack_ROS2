@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Name and base and options
-IMAGE_NAME=epfl-lasa/iiwa_robetarme                           # Chose any name for your image (but make sure to report it in start_docker)
-ROS_DISTRO=noetic                                         # Possible: noetic, melodic
+IMAGE_NAME=epfl-lasa/optitrack_ros2                         # Chose any name for your image (but make sure to report it in start_docker)
+ROS_DISTRO=galactic                                         # Possible: noetic, melodic
 USE_SIMD=OFF                                              # Possible: ON, OFF
-BASE_IMAGE=ghcr.io/aica-technology/ros-ws:${ROS_DISTRO}   # Do not modify
+BASE_IMAGE=ghcr.io/aica-technology/ros2-ws:${ROS_DISTRO}   # Do not modify
 
 # Help
 HELP_MESSAGE="Usage: ./build.sh [-r, --rebuild] [-v, --verbose] [-i, --image-name] [-d, --distro] [--smid]
@@ -35,7 +35,7 @@ while [ "$#" -gt 0 ]; do
     ;;
   -d | --distro)
     ROS_DISTRO=$2
-    if [[ "$ROS_DISTRO" != "noetic" && "$ROS_DISTRO" != "melodic" ]] ; then
+    if [[ "$ROS_DISTRO" != "galactic" && "$ROS_DISTRO" != "melodic" ]] ; then
       echo -e "\033[31mERROR: Distro \"$ROS_DISTRO\" is not supported"; \
       exit 1;
     fi
