@@ -15,7 +15,7 @@ msg/*Result.msg
 msg/_*.py
 build_isolated/
 devel_isolated/
-src/Ros2_ws/src/ros_bridge
+src/Ros2_ws/src/ros1_bridge
 
 .idea
 .vs_code
