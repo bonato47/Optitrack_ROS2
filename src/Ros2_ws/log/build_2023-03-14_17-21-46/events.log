@@ -1,0 +1,189 @@
+[0.000000] (-) TimerEvent: {}
+[0.000096] (ros1_bridge) JobQueued: {'identifier': 'ros1_bridge', 'dependencies': OrderedDict()}
+[0.000727] (ros1_bridge) JobStarted: {'identifier': 'ros1_bridge'}
+[0.014467] (ros1_bridge) JobProgress: {'identifier': 'ros1_bridge', 'progress': 'cmake'}
+[0.016729] (ros1_bridge) Command: {'cmd': ['/usr/bin/cmake', '/home/bonato/Documents/Ros2_ws/src/ros1_bridge', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/bonato/Documents/Ros2_ws/install/ros1_bridge'], 'cwd': '/home/bonato/Documents/Ros2_ws/build/ros1_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bonato'), ('LC_TIME', 'de_CH.UTF-8'), ('SSH_AGENT_PID', '1217'), ('ROS_PACKAGE_PATH', '/opt/ros/noetic/share'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/bonato'), ('OLDPWD', '/home/bonato/Documents/Ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '940'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bonato'), ('JOURNAL_STREAM', '8:40195'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'bonato'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/noetic/bin:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/bonato-Precision-Tower-3620:@/tmp/.ICE-unix/1252,unix/bonato-Precision-Tower-3620:/tmp/.ICE-unix/1252'), ('INVOCATION_ID', '46ea70be9af14ba29a414c6a1527b197'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/397ea0d5_59d4_4e8c_8db6_b8682464fbaa'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('ROSLISP_PACKAGE_DIRECTORIES', ''), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.86'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/bonato/Documents/Ros2_ws/build/ros1_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/noetic/lib/python3/dist-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy:/opt/ros/noetic')]), 'shell': False}
+[0.072385] (ros1_bridge) StdoutLine: {'line': b'-- Found rmw: 1.0.3 (/opt/ros/foxy/share/rmw/cmake)\n'}
+[0.096775] (ros1_bridge) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.096925] (ros1_bridge) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.099769] (-) TimerEvent: {}
+[0.200015] (-) TimerEvent: {}
+[0.277565] (ros1_bridge) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.300081] (-) TimerEvent: {}
+[0.320429] (ros1_bridge) StdoutLine: {'line': b'-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[0.349632] (ros1_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.355344] (ros1_bridge) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.400196] (-) TimerEvent: {}
+[0.497736] (ros1_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.500253] (-) TimerEvent: {}
+[0.554684] (ros1_bridge) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[0.556847] (ros1_bridge) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.600349] (-) TimerEvent: {}
+[0.700554] (-) TimerEvent: {}
+[0.800782] (-) TimerEvent: {}
+[0.900984] (-) TimerEvent: {}
+[1.001246] (-) TimerEvent: {}
+[1.101487] (-) TimerEvent: {}
+[1.201739] (-) TimerEvent: {}
+[1.267594] (ros1_bridge) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[1.269164] (ros1_bridge) StdoutLine: {'line': b'-- Found diagnostic_msgs: 2.0.5 (/opt/ros/foxy/share/diagnostic_msgs/cmake)\n'}
+[1.301825] (-) TimerEvent: {}
+[1.388879] (ros1_bridge) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[1.401924] (-) TimerEvent: {}
+[1.406659] (ros1_bridge) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[1.409445] (ros1_bridge) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.409556] (ros1_bridge) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[1.409662] (ros1_bridge) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[1.442603] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[1.450439] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.450663] (ros1_bridge) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[1.450779] (ros1_bridge) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.454675] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[1.454790] (ros1_bridge) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[1.455606] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[1.457003] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.457905] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[1.461897] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.462011] (ros1_bridge) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.462800] (ros1_bridge) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.502038] (-) TimerEvent: {}
+[1.512030] (ros1_bridge) StdoutLine: {'line': b'-- Found action_msgs: 1.0.0 (/opt/ros/foxy/share/action_msgs/cmake)\n'}
+[1.563280] (ros1_bridge) StdoutLine: {'line': b'-- Found action_tutorials_interfaces: 0.9.4 (/opt/ros/foxy/share/action_tutorials_interfaces/cmake)\n'}
+[1.599732] (ros1_bridge) StdoutLine: {'line': b'-- Found actionlib_msgs: 2.0.5 (/opt/ros/foxy/share/actionlib_msgs/cmake)\n'}
+[1.600010] (ros1_bridge) StdoutLine: {'line': b'-- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)\n'}
+[1.602116] (-) TimerEvent: {}
+[1.633732] (ros1_bridge) StdoutLine: {'line': b'-- Found composition_interfaces: 1.0.0 (/opt/ros/foxy/share/composition_interfaces/cmake)\n'}
+[1.634035] (ros1_bridge) StdoutLine: {'line': b'-- Found diagnostic_msgs: 2.0.5 (/opt/ros/foxy/share/diagnostic_msgs/cmake)\n'}
+[1.688109] (ros1_bridge) StdoutLine: {'line': b'-- Found example_interfaces: 0.9.1 (/opt/ros/foxy/share/example_interfaces/cmake)\n'}
+[1.702200] (-) TimerEvent: {}
+[1.721489] (ros1_bridge) StdoutLine: {'line': b'-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)\n'}
+[1.802314] (-) TimerEvent: {}
+[1.902538] (-) TimerEvent: {}
+[1.915957] (ros1_bridge) StdoutLine: {'line': b'-- Found lgsvl_msgs: 0.0.4 (/opt/ros/foxy/share/lgsvl_msgs/cmake)\n'}
+[1.916409] (ros1_bridge) StdoutLine: {'line': b'-- Found libstatistics_collector: 1.0.1 (/opt/ros/foxy/share/libstatistics_collector/cmake)\n'}
+[1.928963] (ros1_bridge) StdoutLine: {'line': b'-- Found lifecycle_msgs: 1.0.0 (/opt/ros/foxy/share/lifecycle_msgs/cmake)\n'}
+[1.940386] (ros1_bridge) StdoutLine: {'line': b'-- Found logging_demo: 0.9.4 (/opt/ros/foxy/share/logging_demo/cmake)\n'}
+[2.002629] (-) TimerEvent: {}
+[2.102857] (-) TimerEvent: {}
+[2.180418] (ros1_bridge) StdoutLine: {'line': b'-- Found map_msgs: 2.0.2 (/opt/ros/foxy/share/map_msgs/cmake)\n'}
+[2.180798] (ros1_bridge) StdoutLine: {'line': b'-- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)\n'}
+[2.202941] (-) TimerEvent: {}
+[2.284991] (ros1_bridge) StdoutLine: {'line': b'-- Found pcl_msgs: 1.0.0 (/opt/ros/foxy/share/pcl_msgs/cmake)\n'}
+[2.300567] (ros1_bridge) StdoutLine: {'line': b'-- Found pendulum_msgs: 0.9.4 (/opt/ros/foxy/share/pendulum_msgs/cmake)\n'}
+[2.300869] (ros1_bridge) StdoutLine: {'line': b'-- Found rcl_interfaces: 1.0.0 (/opt/ros/foxy/share/rcl_interfaces/cmake)\n'}
+[2.303007] (-) TimerEvent: {}
+[2.315324] (ros1_bridge) StdoutLine: {'line': b'-- Found rmw_dds_common: 1.0.3 (/opt/ros/foxy/share/rmw_dds_common/cmake)\n'}
+[2.315623] (ros1_bridge) StdoutLine: {'line': b'-- Found rosgraph_msgs: 1.0.0 (/opt/ros/foxy/share/rosgraph_msgs/cmake)\n'}
+[2.315878] (ros1_bridge) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[2.374441] (ros1_bridge) StdoutLine: {'line': b'-- Found shape_msgs: 2.0.5 (/opt/ros/foxy/share/shape_msgs/cmake)\n'}
+[2.374766] (ros1_bridge) StdoutLine: {'line': b'-- Found statistics_msgs: 1.0.0 (/opt/ros/foxy/share/statistics_msgs/cmake)\n'}
+[2.375054] (ros1_bridge) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[2.387624] (ros1_bridge) StdoutLine: {'line': b'-- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)\n'}
+[2.403097] (-) TimerEvent: {}
+[2.492675] (ros1_bridge) StdoutLine: {'line': b'-- Found stereo_msgs: 2.0.5 (/opt/ros/foxy/share/stereo_msgs/cmake)\n'}
+[2.503188] (-) TimerEvent: {}
+[2.603373] (-) TimerEvent: {}
+[2.616017] (ros1_bridge) StdoutLine: {'line': b'-- Found tf2_msgs: 0.13.13 (/opt/ros/foxy/share/tf2_msgs/cmake)\n'}
+[2.681228] (ros1_bridge) StdoutLine: {'line': b'-- Found trajectory_msgs: 2.0.5 (/opt/ros/foxy/share/trajectory_msgs/cmake)\n'}
+[2.703507] (-) TimerEvent: {}
+[2.732117] (ros1_bridge) StdoutLine: {'line': b'-- Found turtlesim: 1.2.6 (/opt/ros/foxy/share/turtlesim/cmake)\n'}
+[2.732513] (ros1_bridge) StdoutLine: {'line': b'-- Found unique_identifier_msgs: 2.1.3 (/opt/ros/foxy/share/unique_identifier_msgs/cmake)\n'}
+[2.799421] (ros1_bridge) StdoutLine: {'line': b'-- Found visualization_msgs: 2.0.5 (/opt/ros/foxy/share/visualization_msgs/cmake)\n'}
+[2.803591] (-) TimerEvent: {}
+[2.903785] (-) TimerEvent: {}
+[3.004017] (-) TimerEvent: {}
+[3.058120] (ros1_bridge) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.104124] (-) TimerEvent: {}
+[3.204340] (-) TimerEvent: {}
+[3.304623] (-) TimerEvent: {}
+[3.359306] (ros1_bridge) StdoutLine: {'line': b'-- Generating done\n'}
+[3.365086] (ros1_bridge) StdoutLine: {'line': b'-- Build files have been written to: /home/bonato/Documents/Ros2_ws/build/ros1_bridge\n'}
+[3.375181] (ros1_bridge) CommandEnded: {'returncode': 0}
+[3.377918] (ros1_bridge) JobProgress: {'identifier': 'ros1_bridge', 'progress': 'build'}
+[3.378924] (ros1_bridge) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/bonato/Documents/Ros2_ws/build/ros1_bridge', '--', '-j8', '-l8'], 'cwd': '/home/bonato/Documents/Ros2_ws/build/ros1_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bonato'), ('LC_TIME', 'de_CH.UTF-8'), ('SSH_AGENT_PID', '1217'), ('ROS_PACKAGE_PATH', '/opt/ros/noetic/share'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/bonato'), ('OLDPWD', '/home/bonato/Documents/Ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '940'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bonato'), ('JOURNAL_STREAM', '8:40195'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'bonato'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/noetic/bin:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/bonato-Precision-Tower-3620:@/tmp/.ICE-unix/1252,unix/bonato-Precision-Tower-3620:/tmp/.ICE-unix/1252'), ('INVOCATION_ID', '46ea70be9af14ba29a414c6a1527b197'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/397ea0d5_59d4_4e8c_8db6_b8682464fbaa'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('ROSLISP_PACKAGE_DIRECTORIES', ''), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.86'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/bonato/Documents/Ros2_ws/build/ros1_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/noetic/lib/python3/dist-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy:/opt/ros/noetic')]), 'shell': False}
+[3.404733] (-) TimerEvent: {}
+[3.462984] (ros1_bridge) StdoutLine: {'line': b'[  1%] Built target test_ros1_server\n'}
+[3.468170] (ros1_bridge) StdoutLine: {'line': b'[  1%] Built target test_ros1_client\n'}
+[3.476818] (ros1_bridge) StdoutLine: {'line': b'[  2%] Built target test_ros2_client_cpp\n'}
+[3.478802] (ros1_bridge) StdoutLine: {'line': b'[  2%] Built target simple_bridge_1_to_2\n'}
+[3.480637] (ros1_bridge) StdoutLine: {'line': b'[  3%] Built target simple_bridge_2_to_1\n'}
+[3.481139] (ros1_bridge) StdoutLine: {'line': b'[  4%] Built target test_ros2_server_cpp\n'}
+[3.485552] (ros1_bridge) StdoutLine: {'line': b'[  5%] Built target simple_bridge\n'}
+[3.504826] (-) TimerEvent: {}
+[3.605051] (-) TimerEvent: {}
+[3.705310] (-) TimerEvent: {}
+[3.805568] (-) TimerEvent: {}
+[3.905808] (-) TimerEvent: {}
+[4.006114] (-) TimerEvent: {}
+[4.106355] (-) TimerEvent: {}
+[4.122146] (ros1_bridge) StdoutLine: {'line': b'[ 98%] Built target ros1_bridge\n'}
+[4.152983] (ros1_bridge) StdoutLine: {'line': b'[100%] Built target parameter_bridge\n'}
+[4.153226] (ros1_bridge) StdoutLine: {'line': b'[100%] Built target static_bridge\n'}
+[4.158572] (ros1_bridge) StdoutLine: {'line': b'[100%] Built target dynamic_bridge\n'}
+[4.170397] (ros1_bridge) CommandEnded: {'returncode': 0}
+[4.206514] (-) TimerEvent: {}
+[4.306992] (-) TimerEvent: {}
+[4.407245] (-) TimerEvent: {}
+[4.507597] (-) TimerEvent: {}
+[4.607787] (-) TimerEvent: {}
+[4.659316] (ros1_bridge) JobProgress: {'identifier': 'ros1_bridge', 'progress': 'install'}
+[4.669201] (ros1_bridge) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/bonato/Documents/Ros2_ws/build/ros1_bridge'], 'cwd': '/home/bonato/Documents/Ros2_ws/build/ros1_bridge', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'bonato'), ('LC_TIME', 'de_CH.UTF-8'), ('SSH_AGENT_PID', '1217'), ('ROS_PACKAGE_PATH', '/opt/ros/noetic/share'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/bonato'), ('OLDPWD', '/home/bonato/Documents/Ros2_ws/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_CH.UTF-8'), ('MANAGERPID', '940'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'bonato'), ('JOURNAL_STREAM', '8:40195'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'bonato'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/noetic/bin:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/bonato-Precision-Tower-3620:@/tmp/.ICE-unix/1252,unix/bonato-Precision-Tower-3620:/tmp/.ICE-unix/1252'), ('INVOCATION_ID', '46ea70be9af14ba29a414c6a1527b197'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_CH.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/397ea0d5_59d4_4e8c_8db6_b8682464fbaa'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_CH.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('ROSLISP_PACKAGE_DIRECTORIES', ''), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.86'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_CH.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_CH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_CH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/bonato/Documents/Ros2_ws/build/ros1_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/noetic/lib/python3/dist-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'de_CH.UTF-8'), ('LC_PAPER', 'de_CH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy:/opt/ros/noetic')]), 'shell': False}
+[4.676346] (ros1_bridge) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[4.678175] (ros1_bridge) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[4.678428] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/library_path.sh\n'}
+[4.678660] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/library_path.dsv\n'}
+[4.678892] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/pythonpath.sh\n'}
+[4.679120] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/pythonpath.dsv\n'}
+[4.679646] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/python3.8/site-packages/ros1_bridge/__init__.py\n'}
+[4.679906] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ament_index/resource_index/package_run_dependencies/ros1_bridge\n'}
+[4.680156] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ament_index/resource_index/parent_prefix_path/ros1_bridge\n'}
+[4.680410] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/ament_prefix_path.sh\n'}
+[4.680642] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/ament_prefix_path.dsv\n'}
+[4.680870] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/path.sh\n'}
+[4.681090] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/path.dsv\n'}
+[4.681322] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.bash\n'}
+[4.681548] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.sh\n'}
+[4.681766] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.zsh\n'}
+[4.682026] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.dsv\n'}
+[4.682208] (ros1_bridge) StdoutLine: {'line': b'-- Symlinking: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/package.dsv\n'}
+[4.690620] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ament_index/resource_index/packages/ros1_bridge\n'}
+[4.690848] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_package.cmake\n'}
+[4.691183] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_interface_packages.cmake\n'}
+[4.691529] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[4.691856] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[4.692208] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ros1_bridgeConfig.cmake\n'}
+[4.692435] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ros1_bridgeConfig-version.cmake\n'}
+[4.692745] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/package.xml\n'}
+[4.693231] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/simple_bridge_1_to_2\n'}
+[4.693686] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/simple_bridge_2_to_1\n'}
+[4.694192] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/simple_bridge\n'}
+[4.694679] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/libros1_bridge.so\n'}
+[4.695172] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/static_bridge\n'}
+[4.695667] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/parameter_bridge\n'}
+[4.696157] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/dynamic_bridge\n'}
+[4.696650] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/test_ros2_client_cpp\n'}
+[4.697117] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/test_ros2_server_cpp\n'}
+[4.697430] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/generate_factories/ros1_bridge_generate_factories\n'}
+[4.698091] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_interface_packages.cmake\n'}
+[4.698314] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_package.cmake\n'}
+[4.698966] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/bridge.hpp\n'}
+[4.699184] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/builtin_interfaces_factories.hpp\n'}
+[4.699401] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/convert_builtin_interfaces.hpp\n'}
+[4.699618] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/convert_decl.hpp\n'}
+[4.699824] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/factory.hpp\n'}
+[4.700016] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/factory_interface.hpp\n'}
+[4.700644] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/get_factory.cpp.em\n'}
+[4.700865] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/get_mappings.cpp.em\n'}
+[4.701076] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/interface_factories.cpp.em\n'}
+[4.701295] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/pkg_factories.cpp.em\n'}
+[4.701508] (ros1_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/pkg_factories.hpp.em\n'}
+[4.707885] (-) TimerEvent: {}
+[4.726168] (ros1_bridge) StdoutLine: {'line': b"Listing '/home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/python3.8/site-packages/ros1_bridge'...\n"}
+[4.730944] (ros1_bridge) CommandEnded: {'returncode': 0}
+[4.808042] (-) TimerEvent: {}
+[4.908428] (-) TimerEvent: {}
+[5.008805] (-) TimerEvent: {}
+[5.109198] (-) TimerEvent: {}
+[5.209433] (-) TimerEvent: {}
+[5.252340] (ros1_bridge) JobEnded: {'identifier': 'ros1_bridge', 'rc': 0}
+[5.252916] (-) EventReactorShutdown: {}

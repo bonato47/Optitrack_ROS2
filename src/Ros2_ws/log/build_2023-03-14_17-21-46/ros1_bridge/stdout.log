@@ -1,0 +1,123 @@
+-- Found rmw: 1.0.3 (/opt/ros/foxy/share/rmw/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 2.4.2 (/opt/ros/foxy/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found ament_lint_auto: 0.9.7 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+-- Found diagnostic_msgs: 2.0.5 (/opt/ros/foxy/share/diagnostic_msgs/cmake)
+-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Found action_msgs: 1.0.0 (/opt/ros/foxy/share/action_msgs/cmake)
+-- Found action_tutorials_interfaces: 0.9.4 (/opt/ros/foxy/share/action_tutorials_interfaces/cmake)
+-- Found actionlib_msgs: 2.0.5 (/opt/ros/foxy/share/actionlib_msgs/cmake)
+-- Found builtin_interfaces: 1.0.0 (/opt/ros/foxy/share/builtin_interfaces/cmake)
+-- Found composition_interfaces: 1.0.0 (/opt/ros/foxy/share/composition_interfaces/cmake)
+-- Found diagnostic_msgs: 2.0.5 (/opt/ros/foxy/share/diagnostic_msgs/cmake)
+-- Found example_interfaces: 0.9.1 (/opt/ros/foxy/share/example_interfaces/cmake)
+-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+-- Found lgsvl_msgs: 0.0.4 (/opt/ros/foxy/share/lgsvl_msgs/cmake)
+-- Found libstatistics_collector: 1.0.1 (/opt/ros/foxy/share/libstatistics_collector/cmake)
+-- Found lifecycle_msgs: 1.0.0 (/opt/ros/foxy/share/lifecycle_msgs/cmake)
+-- Found logging_demo: 0.9.4 (/opt/ros/foxy/share/logging_demo/cmake)
+-- Found map_msgs: 2.0.2 (/opt/ros/foxy/share/map_msgs/cmake)
+-- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+-- Found pcl_msgs: 1.0.0 (/opt/ros/foxy/share/pcl_msgs/cmake)
+-- Found pendulum_msgs: 0.9.4 (/opt/ros/foxy/share/pendulum_msgs/cmake)
+-- Found rcl_interfaces: 1.0.0 (/opt/ros/foxy/share/rcl_interfaces/cmake)
+-- Found rmw_dds_common: 1.0.3 (/opt/ros/foxy/share/rmw_dds_common/cmake)
+-- Found rosgraph_msgs: 1.0.0 (/opt/ros/foxy/share/rosgraph_msgs/cmake)
+-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+-- Found shape_msgs: 2.0.5 (/opt/ros/foxy/share/shape_msgs/cmake)
+-- Found statistics_msgs: 1.0.0 (/opt/ros/foxy/share/statistics_msgs/cmake)
+-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)
+-- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)
+-- Found stereo_msgs: 2.0.5 (/opt/ros/foxy/share/stereo_msgs/cmake)
+-- Found tf2_msgs: 0.13.13 (/opt/ros/foxy/share/tf2_msgs/cmake)
+-- Found trajectory_msgs: 2.0.5 (/opt/ros/foxy/share/trajectory_msgs/cmake)
+-- Found turtlesim: 1.2.6 (/opt/ros/foxy/share/turtlesim/cmake)
+-- Found unique_identifier_msgs: 2.1.3 (/opt/ros/foxy/share/unique_identifier_msgs/cmake)
+-- Found visualization_msgs: 2.0.5 (/opt/ros/foxy/share/visualization_msgs/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/bonato/Documents/Ros2_ws/build/ros1_bridge
+[  1%] Built target test_ros1_server
+[  1%] Built target test_ros1_client
+[  2%] Built target test_ros2_client_cpp
+[  2%] Built target simple_bridge_1_to_2
+[  3%] Built target simple_bridge_2_to_1
+[  4%] Built target test_ros2_server_cpp
+[  5%] Built target simple_bridge
+[ 98%] Built target ros1_bridge
+[100%] Built target parameter_bridge
+[100%] Built target static_bridge
+[100%] Built target dynamic_bridge
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/library_path.sh
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/library_path.dsv
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/pythonpath.sh
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/pythonpath.dsv
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/python3.8/site-packages/ros1_bridge/__init__.py
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ament_index/resource_index/package_run_dependencies/ros1_bridge
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ament_index/resource_index/parent_prefix_path/ros1_bridge
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/path.sh
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/environment/path.dsv
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.bash
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.sh
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.zsh
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/local_setup.dsv
+-- Symlinking: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/package.dsv
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ament_index/resource_index/packages/ros1_bridge
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_package.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_interface_packages.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ros1_bridgeConfig.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/ros1_bridgeConfig-version.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/package.xml
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/simple_bridge_1_to_2
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/simple_bridge_2_to_1
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/simple_bridge
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/libros1_bridge.so
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/static_bridge
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/parameter_bridge
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/dynamic_bridge
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/test_ros2_client_cpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/test_ros2_server_cpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/ros1_bridge/generate_factories/ros1_bridge_generate_factories
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_interface_packages.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/cmake/find_ros1_package.cmake
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/bridge.hpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/builtin_interfaces_factories.hpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/convert_builtin_interfaces.hpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/convert_decl.hpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/factory.hpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/include/ros1_bridge/factory_interface.hpp
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/get_factory.cpp.em
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/get_mappings.cpp.em
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/interface_factories.cpp.em
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/pkg_factories.cpp.em
+-- Up-to-date symlink: /home/bonato/Documents/Ros2_ws/install/ros1_bridge/share/ros1_bridge/resource/pkg_factories.hpp.em
+Listing '/home/bonato/Documents/Ros2_ws/install/ros1_bridge/lib/python3.8/site-packages/ros1_bridge'...

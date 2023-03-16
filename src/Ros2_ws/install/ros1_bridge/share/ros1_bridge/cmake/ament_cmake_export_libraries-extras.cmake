@@ -1,0 +1,1 @@
+/home/bonato/Documents/Ros2_ws/build/ros1_bridge/ament_cmake_export_libraries/ament_cmake_export_libraries-extras.cmake
