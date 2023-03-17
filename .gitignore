@@ -16,6 +16,8 @@ msg/_*.py
 build_isolated/
 devel_isolated/
 src/Ros2_ws/src/ros1_bridge
+src/Ros2_ws/log
+src/Ros2_ws/log/latest_build
 
 .idea
 .vs_code

@@ -30,7 +30,6 @@ RUN git config --global user.email "${GIT_EMAIL}"
 RUN sudo apt update
 RUN sudo apt install python-is-python3
 
-
 ### Add a few tools
 RUN sudo apt-get update && sudo apt-get install -y \
     bash-completion \
@@ -39,23 +38,25 @@ RUN sudo apt-get update && sudo apt-get install -y \
     less \
     alsa-utils \
     && sudo apt-get upgrade -y && sudo apt-get clean
-
+#RUN sudo apt update && sudo apt install -y ros-core-dev -y
 # Handle SIMD option
 RUN if [ "${USE_SIMD}" = "ON" ] ; \ 
     then export CMAKE_CXX_FLAGS="-march=native -faligned-new" ; fi
-
-
+    
 # Install Optitrack_ROS2
 WORKDIR /home/${USER}
 RUN git clone https://github.com/bonato47/Optitrack_ROS2.git
-#RUN cp -R Robetarme_iiwa/src/send_pos/ ros_ws/src/
+RUN cp -R Optitrack_ROS2/src/Ros2_ws/ .
+RUN cp -R Optitrack_ROS2/src/Ros1_ws/ .
 
 # Install ros_bridge
-WORKDIR /home/${USER}
+WORKDIR /home/${USER}/Ros2_ws/src
 RUN git clone https://github.com/ros2/ros1_bridge.git
-WORKDIR /home/${USER}/ros1_bridge
-RUN git branch ${ROS_DISTRO}
-RUN colcon build
+WORKDIR /home/${USER}/Ros2_ws/src/ros1_bridge
+RUN git checkout -b ${ROS_DISTRO}
+
+#Cleaning the workspace
+RUN rm -r /home/${USER}/Optitrack_ROS2
 
 ### Add environement variables to bashrc
 WORKDIR /home/${USER}
@@ -68,13 +69,11 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
     then echo "export ENABLE_SIMD=ON" >> /home/${USER}/.bashrc ; fi
 
 ### Build ros workspace
-WORKDIR /home/${USER}/ros2_ws
+WORKDIR /home/${USER}/Ros2_ws/
 RUN source /home/${USER}/.bashrc && rosdep install --from-paths src --ignore-src -r -y
 RUN source /home/${USER}/.bashrc && colcon build;
 
 ### Add environement variables to bashrc
-WORKDIR /home/${USER}
-RUN rm -rf ros2_ws/
 
 RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
 RUN sudo apt install curl 
@@ -82,6 +81,12 @@ RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sud
 RUN sudo apt update
 RUN sudo apt install ros-noetic-desktop-full -y
 RUN sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential 
+
+#WORKDIR /home/${USER}/Ros2_ws/
+#RUN source /opt/ros/noetic/setup.bash
+#RUN rosdep install roscpp
+#RUN source /opt/ros/galactic/setup.bash
+#RUN colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure;
 
 ### Final apt clean
 RUN sudo apt update && sudo apt upgrade && sudo apt clean
