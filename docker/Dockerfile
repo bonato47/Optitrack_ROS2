@@ -37,6 +37,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
     apt-transport-https \
     less \
     alsa-utils \
+    netbase \
     && sudo apt-get upgrade -y && sudo apt-get clean
 #RUN sudo apt update && sudo apt install -y ros-core-dev -y
 # Handle SIMD option
