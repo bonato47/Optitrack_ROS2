@@ -77,7 +77,7 @@ if [ "${MODE}" != "connect" ]; then
     fi
 
     # network for ros
-    FWD_ARGS+=(--net=host)
+    FWD_ARGS+=(--net host)
     FWD_ARGS+=(--env ROS_HOSTNAME="$(hostname)")
 
     # Handle GPU usage
@@ -85,8 +85,10 @@ if [ "${MODE}" != "connect" ]; then
 
     # Other
     FWD_ARGS+=("--privileged")
+
 fi
 
+    
 # Trick aica-docker into making a server on a host network container
 if [ "${MODE}" == "server" ]; then
     FWD_ARGS+=("--detach")

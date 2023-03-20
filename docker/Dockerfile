@@ -46,13 +46,12 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
 # Install Optitrack_ROS2
 WORKDIR /home/${USER}
 RUN git clone https://github.com/bonato47/Optitrack_ROS2.git
-RUN cp -R Optitrack_ROS2/src/Ros2_ws/ .
-RUN cp -R Optitrack_ROS2/src/Ros1_ws/ .
+RUN cp -R Optitrack_ROS2/src/ros1_ws/ .
 
 # Install ros_bridge
-WORKDIR /home/${USER}/Ros2_ws/src
+WORKDIR /home/${USER}/ros2_ws/src
 RUN git clone https://github.com/ros2/ros1_bridge.git
-WORKDIR /home/${USER}/Ros2_ws/src/ros1_bridge
+WORKDIR /home/${USER}/ros2_ws/src/ros1_bridge
 RUN git checkout -b ${ROS_DISTRO}
 
 #Cleaning the workspace
@@ -68,11 +67,6 @@ RUN sudo chown -R ${USER}:${HOST_GID} .bashrc
 RUN if [ "${USE_SIMD}" = "ON" ] ; \
     then echo "export ENABLE_SIMD=ON" >> /home/${USER}/.bashrc ; fi
 
-### Build ros workspace
-WORKDIR /home/${USER}/Ros2_ws/
-RUN source /home/${USER}/.bashrc && rosdep install --from-paths src --ignore-src -r -y
-RUN source /home/${USER}/.bashrc && colcon build;
-
 ### Add environement variables to bashrc
 
 RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
@@ -81,12 +75,19 @@ RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sud
 RUN sudo apt update
 RUN sudo apt install ros-noetic-desktop-full -y
 RUN sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential 
+RUN sudo apt-get install ros-noetic-vrpn-client-ros -y
 
-#WORKDIR /home/${USER}/Ros2_ws/
-#RUN source /opt/ros/noetic/setup.bash
-#RUN rosdep install roscpp
-#RUN source /opt/ros/galactic/setup.bash
-#RUN colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure;
+### Build ros workspace
+WORKDIR /home/${USER}/ros1_ws/
+RUN source /opt/ros/noetic/setup.bash && rosdep install --from-paths src --ignore-src -r -y
+RUN source /opt/ros/noetic/setup.bash && rosdep install roscpp
+RUN source /opt/ros/noetic/setup.bash && catkin_make;
+#sudo -H apt-get install -y ros-galactic-demo-nodes-cpp
+
+### Build ros2 workspace
+WORKDIR /home/${USER}/ros2_ws/
+RUN source /opt/ros/noetic/setup.bash && source /opt/ros/galactic/setup.bash && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure;
+WORKDIR /home/${USER}
 
 ### Final apt clean
 RUN sudo apt update && sudo apt upgrade && sudo apt clean
