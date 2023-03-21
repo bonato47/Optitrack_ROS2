@@ -85,7 +85,7 @@ if [ "${MODE}" != "connect" ]; then
 
     # Other
     FWD_ARGS+=("--privileged")
-
+#    FWD_ARGS+=("--ros-domain-id 99")
 fi
 
     
@@ -94,6 +94,8 @@ if [ "${MODE}" == "server" ]; then
     FWD_ARGS+=("--detach")
     MODE=interactive
 fi
+
+
 
 # Start docker using aica
 aica-docker \
