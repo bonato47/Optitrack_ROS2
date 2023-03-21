@@ -25,22 +25,29 @@ public:
   : Node("vrpn")
   {
     subscription_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
-        "/vrpn_client_node/stick/pose", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+        "/vrpn_client_node/stick/pose", 100, std::bind(&MinimalSubscriber::topic_callback, this, _1));
   }
 
 private:
   void topic_callback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
         // Camera position in map frame
-        double tx = msg->pose.position.x;
-        double ty = msg->pose.position.y;
-        double tz = msg->pose.position.z;
-     // Output the measure
-        RCLCPP_INFO(get_logger(), "Received pose in '%s' frame : X: %.2f Y: %.2f Z: %.2f - R: %.2f P: %.2f Y: %.2f - Timestamp: %u.%u sec ",
-                 msg->header.frame_id.c_str(),tx, ty, tz);
+        //msg->header;
+        double px = msg->pose.position.x;
+        double py = msg->pose.position.y;
+        double pz = msg->pose.position.z;
+        double ox = msg->pose.orientation.x;
+        double oy = msg->pose.orientation.y;
+        double oz = msg->pose.orientation.z;
+        double ow = msg->pose.orientation.w; 
+     //Output the measure
+       RCLCPP_INFO(get_logger(), "Received pose in '%s' frame : X: %.2f Y: %.2f Z: %.2f - R: %.2f P: %.2f Y: %.2f - Timestamp: %u.%u sec ",
+                 msg->header.frame_id.c_str(),px, py, pz);
     }
   
   rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr subscription_;
 };
+
+
 
 int main(int argc, char * argv[])
 {

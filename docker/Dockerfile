@@ -48,12 +48,16 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
 WORKDIR /home/${USER}
 RUN git clone https://github.com/bonato47/Optitrack_ROS2.git
 RUN cp -R Optitrack_ROS2/src/ros1_ws/ .
+RUN cp -R Optitrack_ROS2/src/ros2_ws/ .
 
 # Install ros_bridge
 WORKDIR /home/${USER}/ros2_ws/src
 RUN git clone https://github.com/ros2/ros1_bridge.git
 WORKDIR /home/${USER}/ros2_ws/src/ros1_bridge
 RUN git checkout -b ${ROS_DISTRO}
+
+# Install subsciiber
+
 
 #Cleaning the workspace
 RUN rm -r /home/${USER}/Optitrack_ROS2
@@ -87,8 +91,8 @@ RUN source /opt/ros/noetic/setup.bash && catkin_make;
 
 ### Build ros2 workspace
 WORKDIR /home/${USER}/ros2_ws/
-RUN source /opt/ros/noetic/setup.bash && source /opt/ros/galactic/setup.bash && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure;
+RUN source /opt/ros/noetic/setup.bash && source /opt/ros/galactic/setup.bash && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure && colcon build;
 WORKDIR /home/${USER}
 
 ### Final apt clean
-RUN sudo apt update && sudo apt upgrade && sudo apt clean
+RUN sudo apt update && sudo apt upgrade -y && sudo apt clean
