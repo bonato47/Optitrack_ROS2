@@ -5,6 +5,10 @@ This Docker is based on the iiwa_ros git hub repo :https://github.com/epfl-lasa/
 ## Authors/Maintainers
 - Tristan Bonato: tristan.bonato@epfl.ch, @bonato47 on github.
 
+To bind rosbridge we create a subscirber with the desired topics. You can change the name of the topic in ros2_ws/src/cpp_pubsub/
+
+
+
 Terminal #1
 cd Optitrack_ROS2/docker
 bash build_docker 
