@@ -25,4 +25,4 @@ Terminal #3
 cd Optitrack_ROS2/docker
 bash start_docker connect
 cd ros2_ws
-ROS_DOMAIN_ID=99 ros2 run cpp_pub_sub listener
+ROS_DOMAIN_ID=99 ros2 run cpp_pubsub listener
