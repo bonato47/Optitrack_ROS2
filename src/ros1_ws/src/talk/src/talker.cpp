@@ -1,90 +1,136 @@
 #include "ros/ros.h"
 #include "std_msgs/Float64MultiArray.h"
 
+#include "geometry_msgs/Vector3Stamped.h"
+#include "geometry_msgs/QuaternionStamped.h"
+#include "geometry_msgs/PoseStamped.h"
+
+#include <fstream>
+#include <cmath>
+#include <iostream>
 #include <sstream>
+#include <eigen3/Eigen/Dense>
+#include <stdio.h>
+#include <filesystem>
+#include <unistd.h>
 
 
-/**
- * This tutorial demonstrates simple sending of messages over the ROS system.
- */
+using namespace Eigen;
+using namespace std;
+   
+
+void CC_vrpn1(const geometry_msgs::PoseStamped::ConstPtr msg);
+void CC_vrpn2(const geometry_msgs::PoseStamped::ConstPtr msg);
+void CC_vrpn3(const geometry_msgs::PoseStamped::ConstPtr msg);
+void CC_vrpn4(const geometry_msgs::PoseStamped::ConstPtr msg);
+
+
+class vrpn {       // The class
+  public:             // Access specifier
+    Vector3d pos;
+    Vector4d quat;
+
+/*     void vrpn() {  // Method/function defined inside the class
+        quat   = {0,0,0,0};     
+        pos= {0,0,0};
+    }  */
+};
+
+vrpn base1;
+vrpn base2;
+vrpn obj1;
+vrpn obj2;
+
+Vector4d outobj1;
+Vector4d outobj2;
+
+vector<double> row;
 int main(int argc, char **argv)
 {
-  /**
-   * The ros::init() function needs to see argc and argv so that it can perform
-   * any ROS arguments and name remapping that were provided at the command line.
-   * For programmatic remappings you can use a different version of init() which takes
-   * remappings directly, but for most command-line programs, passing argc and argv is
-   * the easiest way to do it.  The third argument to init() is the name of the node.
-   *
-   * You must call one of the versions of ros::init() before using any other
-   * part of the ROS system.
-   */
-  ros::init(argc, argv, "talker");
+    //Initialisation of the Ros Node (Service, Subscrber and Publisher)
+    ros::init(argc, argv, "objectbase");
+    ros::NodeHandle Nh_;
+    ros::Subscriber sub_BF1 = Nh_.subscribe("/vrpn_client_node/BaseFranka1/pose", 1000, CC_vrpn1);
+    ros::Subscriber sub_BF2 = Nh_.subscribe("/vrpn_client_node/BaseFranka2/pose", 1000, CC_vrpn2);
+    ros::Subscriber sub_obj1 = Nh_.subscribe("/vrpn_client_node/ObjetGrand1/pose", 1000, CC_vrpn3);
+    ros::Subscriber sub_obj2 = Nh_.subscribe("/vrpn_client_node/ObjetPetit2/pose", 1000, CC_vrpn4);
 
-  /**
-   * NodeHandle is the main access point to communications with the ROS system.
-   * The first NodeHandle constructed will fully initialize this node, and the last
-   * NodeHandle destructed will close down the node.
-   */
-  ros::NodeHandle n;
+    ros::Publisher pub1 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Objet1_base1", 1000);
+    ros::Publisher pub2 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Objet1_base2", 1000);
 
-  /**
-   * The advertise() function is how you tell ROS that you want to
-   * publish on a given topic name. This invokes a call to the ROS
-   * master node, which keeps a registry of who is publishing and who
-   * is subscribing. After this advertise() call is made, the master
-   * node will notify anyone who is trying to subscribe to this topic name,
-   * and they will in turn negotiate a peer-to-peer connection with this
-   * node.  advertise() returns a Publisher object which allows you to
-   * publish messages on that topic through a call to publish().  Once
-   * all copies of the returned Publisher object are destroyed, the topic
-   * will be automatically unadvertised.
-   *
-   * The second parameter to advertise() is the size of the message queue
-   * used for publishing messages.  If messages are published more quickly
-   * than we can send them, the number here specifies how many messages to
-   * buffer up before throwing some away.
-   */
+    ros::Rate loop_rate(400);
+
+    geometry_msgs::PoseStamped msgP1;
+    geometry_msgs::PoseStamped msgP2;
 
 
-  ros::Publisher chatter_pub = n.advertise<std_msgs::Float64MultiArray>("iiwa/PositionController/command", 1000);
-
-  ros::Rate loop_rate(10);
+    //begin the ros loop
+    double count = 0;
+    while (ros::ok())
+    {
+        Quaterniond q1,q2;
+        q1.x() = base1.quat[0];
+        q1.y() = base1.quat[1];
+        q1.z() = base1.quat[2];
+        q1.w() = base1.quat[3];    
+        Matrix3d R1 = q1.toRotationMatrix();
+        
+        q2.x() = base2.quat[0];
+        q2.y() = base2.quat[1];
+        q2.z() = base2.quat[2];
+        q2.w() = base2.quat[3];    
+        Matrix3d R2 = q2.toRotationMatrix();
+        MatrixXd M1(4,4) ,M2(4,4);
  
+        M1 << R1(0,0),R1(0,1),R1(0,2),base1.pos[0],
+              R1(1,0),R1(1,1),R1(1,2),base1.pos[1],
+              R1(2,0),R1(2,1),R1(2,2),base1.pos[2],
+              0,0,0,1;
+        M2 << R2(0,0),R2(0,1),R2(0,2),base2.pos[0],
+              R2(1,0),R2(1,1),R2(1,2),base2.pos[1],
+              R2(2,0),R2(2,1),R2(2,2),base2.pos[2],
+              0,0,0,1;
+        Vector4d obj1temp ={obj1.pos[0],obj1.pos[1],obj1.pos[2],1};
+        Vector4d obj2temp ={obj2.pos[0],obj2.pos[1],obj2.pos[2],1};
 
-  /**
-   * A count of how many messages we have sent. This is used to create
-   * a unique string for each message.
-   */
-  int count = 0;
-  std_msgs::Float64MultiArray msgP;
-  if (count ==0){
-    msgP.data = {0,0,0,0,0,0,0};
-  }
-  while (ros::ok())
-  {
-    /**
-     * This is a message object. You stuff it with data, and then publish it.
-    */
+        outobj1=M1*obj1temp;
+        outobj2=M2*obj2temp; 
+        ROS_INFO("%f %f %f %f", obj1temp[0],obj1temp[1],obj1temp[2],obj1temp[3]); 
+        msgP1.position.x = obj1temp[0];
+        msgP1.position.x = obj1temp[1];
 
- 
+        pub1.publish(msgP);
 
-   
-    /**
-     * The publish() function is how you send messages. The parameter
-     * is the message object. The type of this object must agree with the type
-     * given as a template parameter to the advertise<>() call, as was done
-     * in the constructor above.
-     */
-
-    chatter_pub.publish(msgP);
-
-    ros::spinOnce();
-
-    loop_rate.sleep();
-    ++count;
-  }
-
-
-  return 0;
+        ++count;
+        //--------------------------------------------------------------------
+        ros::spinOnce();        
+        loop_rate.sleep();  
+    }
 }
+
+
+void CC_vrpn1(const geometry_msgs::PoseStamped::ConstPtr msg)
+{
+    base1.pos    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
+    base1.quat   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
+}
+
+void CC_vrpn2(const geometry_msgs::PoseStamped::ConstPtr msg)
+{
+    base2.pos    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
+    base2.quat   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
+}
+void CC_vrpn3(const geometry_msgs::PoseStamped::ConstPtr msg)
+{
+    obj1.pos    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
+    obj1.quat   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
+}
+
+void CC_vrpn4(const geometry_msgs::PoseStamped::ConstPtr msg)
+{
+    obj2.pos    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
+    obj2.quat   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
+}
+
+
+
