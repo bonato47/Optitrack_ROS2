@@ -52,11 +52,11 @@ int main(int argc, char **argv)
     ros::NodeHandle Nh_;
     ros::Subscriber sub_BF1 = Nh_.subscribe("/vrpn_client_node/BaseFranka1/pose", 1000, CC_vrpn1);
     ros::Subscriber sub_BF2 = Nh_.subscribe("/vrpn_client_node/BaseFranka2/pose", 1000, CC_vrpn2);
-    ros::Subscriber sub_obj1 = Nh_.subscribe("/vrpn_client_node/ObjetGrand1/pose", 1000, CC_vrpn3);
-    ros::Subscriber sub_obj2 = Nh_.subscribe("/vrpn_client_node/ObjetPetit2/pose", 1000, CC_vrpn4);
+    ros::Subscriber sub_obj1 = Nh_.subscribe("/vrpn_client_node/ObjectGrand1/pose", 1000, CC_vrpn3);
+    ros::Subscriber sub_obj2 = Nh_.subscribe("/vrpn_client_node/ObjectPetit2/pose", 1000, CC_vrpn4);
 
-    ros::Publisher pub1 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Objet1_base1", 1000);
-    ros::Publisher pub2 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Objet1_base2", 1000);
+    ros::Publisher pub1 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object1_base1", 1000);
+    ros::Publisher pub2 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object1_base2", 1000);
 
     ros::Rate loop_rate(400);
 
@@ -93,14 +93,20 @@ int main(int argc, char **argv)
         Vector4d obj1temp ={obj1.pos[0],obj1.pos[1],obj1.pos[2],1};
         Vector4d obj2temp ={obj2.pos[0],obj2.pos[1],obj2.pos[2],1};
 
-        outobj1=M1*obj1temp;
+        outobj1=M1.inverse()*obj1temp;
         outobj2=M2*obj2temp; 
-        ROS_INFO("%f %f %f %f", obj1temp[0],obj1temp[1],obj1temp[2],obj1temp[3]); 
-        msgP1.position.x = obj1temp[0];
-        msgP1.position.x = obj1temp[1];
 
-        pub1.publish(msgP);
 
+        msgP1.pose.position.x = outobj1[0];
+        msgP1.pose.position.y = outobj1[1];
+        msgP1.pose.position.z = outobj1[2];
+
+        msgP2.pose.position.x = outobj2[0];
+        msgP2.pose.position.y = outobj2[1];
+        msgP2.pose.position.z = outobj2[2];
+    
+        pub1.publish(msgP1);
+        pub2.publish(msgP2);
         ++count;
         //--------------------------------------------------------------------
         ros::spinOnce();        
