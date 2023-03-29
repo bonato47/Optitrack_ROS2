@@ -25,7 +25,7 @@ public:
   : Node("vrpn")
   {
     subscription_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
-        "/vrpn_client_node/stick/pose", 100, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+        "/vrpn/Object1_base1", 100, std::bind(&MinimalSubscriber::topic_callback, this, _1));
   }
 
 private:

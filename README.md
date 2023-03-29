@@ -11,9 +11,9 @@ To bind rosbridge we create a subscirber with the desired topics. You can change
 
 Terminal #1
 cd Optitrack_ROS2/docker
-bash build_docker 
-bash start_docker server
-bash start_docker connect
+bash build_docker.sh 
+bash start_docker.sh server
+bash start_docker.sh connect
 cd ros1_ws
 source /opt/ros/noetic/setup.bash
 source devel/setup.bash
@@ -21,12 +21,12 @@ roslaunch opti_track_ros_interface vrpn_optitrack.launch
 
 Terminal #2
 cd Optitrack_ROS2/docker
-bash start_docker connect
+bash start_docker.sh connect
 cd ros2_ws
 ROS_DOMAIN_ID=99 ros2 run ros1_bridge dynamic_bridge
 
 Terminal #3
 cd Optitrack_ROS2/docker
-bash start_docker connect
+bash start_docker.sh connect
 cd ros2_ws
 ROS_DOMAIN_ID=99 ros2 run cpp_pubsub listener

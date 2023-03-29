@@ -3,7 +3,7 @@ IMAGE_NAME="epfl-lasa/optitrack_ros2"
 CONTAINER_NAME="${IMAGE_NAME//[\/.]/-}"
 USERNAME="ros2"
 MODE=()
-USE_NVIDIA_TOOLKIT=()
+USE_NVIDIA_TOOLKIT=false
 
 # Help
 HELP_MESSAGE="Usage: ./start_dockers.sh [interactive | server | connect] [-i, --image] [-u, --user]
@@ -69,13 +69,13 @@ if [ "${MODE}" != "connect" ]; then
     fi
 
     # Check if a NVIDIA GPU is available
-    if [[ $(sudo lshw -C display | grep vendor) =~ NVIDIA ]]; then
-        USE_NVIDIA_TOOLKIT=true
-        echo "Detected NVIDIA graphic card, giving access to the container."
-    else
-        USE_NVIDIA_TOOLKIT=false
-    fi
-
+    #if [[ $(sudo lshw -C display | grep vendor) =~ NVIDIA ]]; then
+    #    USE_NVIDIA_TOOLKIT=true
+    #    echo "Detected NVIDIA graphic card, giving access to the container."
+    #else
+    #    USE_NVIDIA_TOOLKIT=false
+    #fi
+	
     # network for ros
     FWD_ARGS+=(--net host)
     FWD_ARGS+=(--env ROS_HOSTNAME="$(hostname)")
