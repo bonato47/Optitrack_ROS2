@@ -15,5 +15,7 @@
         #- SecondTracker
         </rosparam>
     </node>
+    <node pkg="talk" name="talker">
+
 
 </launch>
