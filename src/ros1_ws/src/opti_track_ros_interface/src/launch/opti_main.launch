@@ -15,7 +15,6 @@
         #- SecondTracker
         </rosparam>
     </node>
-    <node pkg="talk" name="talker">
-
+ <node name="talker" pkg="talk" type="talker" args="$(find talk)/src/talker.cpp" />
 
 </launch>
