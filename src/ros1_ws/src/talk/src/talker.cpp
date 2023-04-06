@@ -114,7 +114,6 @@ int main(int argc, char **argv)
     }
 }
 
-
 void CC_vrpn1(const geometry_msgs::PoseStamped::ConstPtr msg)
 {
     base1.pos    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
@@ -137,6 +136,3 @@ void CC_vrpn4(const geometry_msgs::PoseStamped::ConstPtr msg)
     obj2.pos    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
     obj2.quat   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
 }
-
-
-
