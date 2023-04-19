@@ -40,8 +40,8 @@ private:
         double oz = msg->pose.orientation.z;
         double ow = msg->pose.orientation.w; 
      //Output the measure
-       RCLCPP_INFO(get_logger(), "Received pose in '%s' frame : X: %.2f Y: %.2f Z: %.2f - R: %.2f P: %.2f Y: %.2f - Timestamp: %u.%u sec ",
-                 msg->header.frame_id.c_str(),px, py, pz);
+       //RCLCPP_INFO(get_logger(), "Received pose in '%s' frame : X: %.2f Y: %.2f Z: %.2f - R: %.2f P: %.2f Y: %.2f - Timestamp: %u.%u sec ",
+         //        msg->header.frame_id.c_str(),px, py, pz);
     }
   
   rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr subscription_;
