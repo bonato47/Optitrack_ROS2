@@ -63,7 +63,7 @@ int main(int argc, char **argv)
     geometry_msgs::PoseStamped msgP1;
     geometry_msgs::PoseStamped msgP2;
 
-
+   ROS_INFO("Talker running");
     //begin the ros loop
     double count = 0;
     while (ros::ok())
