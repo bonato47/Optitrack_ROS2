@@ -50,10 +50,10 @@ int main(int argc, char **argv)
     //Initialisation of the Ros Node (Service, Subscrber and Publisher)
     ros::init(argc, argv, "objectbase");
     ros::NodeHandle Nh_;
-    ros::Subscriber sub_BF1 = Nh_.subscribe("/vrpn_client_node/darko_target_box/pose", 1000, CC_vrpn1);
-    ros::Subscriber sub_BF2 = Nh_.subscribe("/vrpn_client_node/BaseFranka2/pose", 1000, CC_vrpn2);
-    ros::Subscriber sub_obj1 = Nh_.subscribe("/vrpn_client_node/ball/pose", 1000, CC_vrpn3);
-    ros::Subscriber sub_obj2 = Nh_.subscribe("/vrpn_client_node/ObjectPetit2/pose", 1000, CC_vrpn4);
+    ros::Subscriber sub_BF1 = Nh_.subscribe("/vrpn_client_node/franka_base16/pose", 1000, CC_vrpn1);
+    ros::Subscriber sub_BF2 = Nh_.subscribe("/vrpn_client_node/franka_base17/pose", 1000, CC_vrpn2);
+    ros::Subscriber sub_obj1 = Nh_.subscribe("/vrpn_client_node/ball_small/pose", 1000, CC_vrpn3);
+    ros::Subscriber sub_obj2 = Nh_.subscribe("/vrpn_client_node/ball_medium/pose", 1000, CC_vrpn4);
 
     ros::Publisher pub1 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object1_base1", 1000);
     ros::Publisher pub2 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object1_base2", 1000);
