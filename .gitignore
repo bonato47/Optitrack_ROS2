@@ -15,7 +15,6 @@ msg/*Result.msg
 msg/_*.py
 build_isolated/
 devel_isolated/
-src/ros2_ws/src/ros1_bridge
 src/ros2_ws/log
 src/ros2_ws/log/latest_build
 src/ros2_ws/install/
