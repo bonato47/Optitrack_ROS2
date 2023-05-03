@@ -46,16 +46,9 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
     
 # Install Optitrack_ROS2
 WORKDIR /home/${USER}
-RUN git clone --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
+RUN git clone b 16 --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
 RUN cp -R Optitrack_ROS2/src/ros1_ws/ .
 RUN cp -R Optitrack_ROS2/src/ros2_ws/ .
-
-# Install ros_bridge
-WORKDIR /home/${USER}/ros2_ws/src
-RUN git clone -b ${ROS_DISTRO} https://github.com/ros2/ros1_bridge.git
-
-# Install subsciiber
-
 
 #Cleaning the workspace
 RUN rm -r /home/${USER}/Optitrack_ROS2
