@@ -41,9 +41,9 @@ int main(int argc, char * argv[])
   auto ros2_node = rclcpp::Node::make_shared("ros_bridge");
 
   // bridge one example topic
-  std::string topic_name = "chatter";
-  std::string ros1_type_name = "std_msgs/String";
-  std::string ros2_type_name = "std_msgs/msg/String";
+  std::string topic_name = "/vrpn/Object16_base16";
+  std::string ros1_type_name = "geometry_msgs/PoseStamped";
+  std::string ros2_type_name = "geometry_msgs/msg/PoseStamped";
   size_t queue_size = 10;
 
   auto handles = ros1_bridge::create_bidirectional_bridge(
