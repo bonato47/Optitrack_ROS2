@@ -52,9 +52,7 @@ RUN cp -R Optitrack_ROS2/src/ros2_ws/ .
 
 # Install ros_bridge
 WORKDIR /home/${USER}/ros2_ws/src
-RUN git clone https://github.com/ros2/ros1_bridge.git
-WORKDIR /home/${USER}/ros2_ws/src/ros1_bridge
-RUN git checkout -b ${ROS_DISTRO}
+RUN git clone -b ${ROS_DISTRO} https://github.com/ros2/ros1_bridge.git
 
 # Install subsciiber
 
