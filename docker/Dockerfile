@@ -50,6 +50,18 @@ RUN git clone --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
 RUN cp -R Optitrack_ROS2/src/ros1_ws/ .
 RUN cp -R Optitrack_ROS2/src/ros2_ws/ .
 
+<<<<<<< HEAD
+=======
+# Install ros_bridge
+WORKDIR /home/${USER}/ros2_ws/src
+RUN git clone https://github.com/ros2/ros1_bridge.git
+WORKDIR /home/${USER}/ros2_ws/src/ros1_bridge
+RUN git checkout -b ${ROS_DISTRO}
+
+# Install subsciiber
+
+
+>>>>>>> parent of 0659941 (dock)
 #Cleaning the workspace
 RUN rm -r /home/${USER}/Optitrack_ROS2
 
