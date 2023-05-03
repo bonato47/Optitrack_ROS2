@@ -41,7 +41,7 @@ int main(int argc, char * argv[])
   auto ros2_node = rclcpp::Node::make_shared("ros_bridge");
 
   // bridge one example topic
-  std::string topic_name = "/vrpn/Object16_base16";
+  std::string topic_name = "/vrpn/Object18_base18";
   std::string ros1_type_name = "geometry_msgs/PoseStamped";
   std::string ros2_type_name = "geometry_msgs/msg/PoseStamped";
   size_t queue_size = 10;
