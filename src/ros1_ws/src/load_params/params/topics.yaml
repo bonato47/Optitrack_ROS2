@@ -1,0 +1,1 @@
+topics: [{topic: /turtle1/color_sensor, type: turtlesim/Color, queue_size: 100}, {topic: /tf, type: tf2_msgs/msg/TFMessage, queue_size: 100}]
