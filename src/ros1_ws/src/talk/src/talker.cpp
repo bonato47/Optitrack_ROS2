@@ -42,16 +42,21 @@ class vrpn {       // The class
         Matrix3d R = q.toRotationMatrix();
 
         // add one line of 0,0,0,1 at the matrix for the transform
-        MatrixXd M(4,4);
+        MatrixXd M(4,4),M_rot(4,4);
         M << R(0,0),R(0,1),R(0,2),pos[0],
               R(1,0),R(1,1),R(1,2),pos[1],
               R(2,0),R(2,1),R(2,2),pos[2],
               0,0,0,1;
+        // 90 rot in x for the base of Optitrack
+        M_rot << 1, 0, 0, 0,
+                 0, 0, -1, 0,
+                 0, 1, 0, 0;
 
         // Inverse * object => to have the position relatively of the base oof the robot
         Vector4d objtemp ={obj[0],obj[1],obj[2],1};
         Vector4d outobj;
-        outobj=M.inverse()*objtemp;
+
+        outobj=M_rot.inverse()*M.inverse()*objtemp;
 
         msgP.pose.position.x = outobj[0];
         msgP.pose.position.y = outobj[1];
@@ -64,48 +69,35 @@ vrpn object1, object2, object3, object4;
 
 int main(int argc, char **argv)
 {
+    string name_object;
+    string name_base;
     //Initialisation of the Ros Node (Service, Subscrber and Publisher)
     ros::init(argc, argv, "objectbase");
-    ros::NodeHandle Nh_;
-    ros::Subscriber sub_BF1 = Nh_.subscribe("/vrpn_client_node/franka_base16/pose", 1000, &vrpn::CC_vrpn_base, &object1);
-    ros::Subscriber sub_BF2 = Nh_.subscribe("/vrpn_client_node/franka_base17/pose", 1000, &vrpn::CC_vrpn_base, &object2);
-    ros::Subscriber sub_BF3 = Nh_.subscribe("/vrpn_client_node/franka_base18/pose", 1000, &vrpn::CC_vrpn_base, &object3);
-    ros::Subscriber sub_BF4 = Nh_.subscribe("/vrpn_client_node/franka_base19/pose", 1000, &vrpn::CC_vrpn_base, &object4);
+    ros::NodeHandle Nh;
+
+    Nh.getParam("name_object", name_object);
+    Nh.getParam("name_base", name_base);
+
+    ros::Subscriber sub_BF1 = Nh.subscribe(name_base, 1000, &vrpn::CC_vrpn_base, &object1);
+    
+    ros::Subscriber sub_obj1 = Nh.subscribe(name_object, 1000, &vrpn::CC_vrpn_obj, &object1);
+    
+    ros::Publisher pub1 = Nh.advertise<geometry_msgs::PoseStamped>("/vrpn/Object_base", 1000);
    
-    ros::Subscriber sub_obj1 = Nh_.subscribe("/vrpn_client_node/ball_16/pose", 1000, &vrpn::CC_vrpn_obj, &object1);
-    ros::Subscriber sub_obj2 = Nh_.subscribe("/vrpn_client_node/ball_17/pose", 1000, &vrpn::CC_vrpn_obj, &object2);
-    ros::Subscriber sub_obj3 = Nh_.subscribe("/vrpn_client_node/ball_18/pose", 1000, &vrpn::CC_vrpn_obj, &object3);
-    ros::Subscriber sub_obj4 = Nh_.subscribe("/vrpn_client_node/ball_19/pose", 1000, &vrpn::CC_vrpn_obj, &object4);
-
-    ros::Publisher pub1 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object16_base16", 1000);
-    ros::Publisher pub2 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object17_base17", 1000);
-    ros::Publisher pub3 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object18_base18", 1000);
-    ros::Publisher pub4 = Nh_.advertise<geometry_msgs::PoseStamped>("/vrpn/Object19_base19", 1000);
-
     ros::Rate loop_rate(400);
 
     geometry_msgs::PoseStamped msgP1;
-    geometry_msgs::PoseStamped msgP2;
-   
-    geometry_msgs::PoseStamped msgP3;
-    geometry_msgs::PoseStamped msgP4;
-
-
 
    ROS_INFO("Talker running");
+
     //begin the ros loop
     double count = 0;
     while (ros::ok())
     {
         object1.transform_new_base();
-        object2.transform_new_base();
-        object3.transform_new_base();
-        object4.transform_new_base();
-
+        
         pub1.publish(object1.msgP);
-        pub2.publish(object2.msgP);
-        pub3.publish(object3.msgP);
-        pub4.publish(object4.msgP);
+
         ++count;
         //--------------------------------------------------------------------
         ros::spinOnce();        

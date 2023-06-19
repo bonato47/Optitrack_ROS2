@@ -10,11 +10,15 @@
         broadcast_tf: true
         # Must either specify refresh frequency > 0.0, or a list of trackers to create
         refresh_tracker_frequency: 1.0
-        #trackers:
-        #- FirstTracker
-        #- SecondTracker
         </rosparam>
     </node>
- <node name="talker" pkg="talk" type="talker" args="$(find talk)/src/talker.cpp" />
-
+    
+    <arg name_object = "name_object" default="none"/>
+    <arg name_base   = "name_base"   default="none"/>
+    <node name="talker" pkg="talk" type="talker" output="screen"/>
+    	<rosparam subst_value="true">
+        name_object: $(arg name_object)
+        name_base: $(arg name_base)
+        </rosparam>
+   </node>
 </launch>
