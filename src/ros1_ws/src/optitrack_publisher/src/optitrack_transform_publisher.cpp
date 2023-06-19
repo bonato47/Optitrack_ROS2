@@ -14,7 +14,6 @@
 #include <filesystem>
 #include <unistd.h>
 
-
 using namespace Eigen;
 using namespace std;
    
@@ -50,13 +49,14 @@ class vrpn {       // The class
         // 90 rot in x for the base of Optitrack
         M_rot << 1, 0, 0, 0,
                  0, 0, -1, 0,
-                 0, 1, 0, 0;
+                 0, 1, 0, 0,
+                 0, 0, 0, 1;
 
         // Inverse * object => to have the position relatively of the base oof the robot
         Vector4d objtemp ={obj[0],obj[1],obj[2],1};
         Vector4d outobj;
-
-        outobj=M_rot.inverse()*M.inverse()*objtemp;
+        
+        outobj = M_rot.inverse()*M.inverse()*objtemp;
 
         msgP.pose.position.x = outobj[0];
         msgP.pose.position.y = outobj[1];
@@ -69,14 +69,17 @@ vrpn object1, object2, object3, object4;
 
 int main(int argc, char **argv)
 {
-    string name_object;
-    string name_base;
+    string name_object;//= "/vrpn_client_node/ball_17/pose";
+    string name_base;// = "/vrpn_client_node/franka_base17/pose";
     //Initialisation of the Ros Node (Service, Subscrber and Publisher)
     ros::init(argc, argv, "objectbase");
     ros::NodeHandle Nh;
 
-    Nh.getParam("name_object", name_object);
-    Nh.getParam("name_base", name_base);
+    Nh.getParam("/optitrack_publisher/name_object", name_object);
+    Nh.getParam("/optitrack_publisher/name_base", name_base);
+   
+
+    printf("\n%s\n",name_base.c_str());
 
     ros::Subscriber sub_BF1 = Nh.subscribe(name_base, 1000, &vrpn::CC_vrpn_base, &object1);
     

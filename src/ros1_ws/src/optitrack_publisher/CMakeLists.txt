@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(talk)
+project(optitrack_publisher)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -214,8 +214,8 @@ include_directories(
 #include/qpOASES/qpOASES.cpp
 
 
-add_executable(talker src/talker.cpp)
-target_link_libraries(talker ${catkin_LIBRARIES})
+add_executable(optitrack_transform_publisher src/optitrack_transform_publisher.cpp)
+target_link_libraries(optitrack_transform_publisher ${catkin_LIBRARIES})
 
 
 
