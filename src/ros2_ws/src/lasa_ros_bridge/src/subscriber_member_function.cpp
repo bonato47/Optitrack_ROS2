@@ -27,7 +27,7 @@ public:
     subscription_ = this->create_subscription<geometry_msgs::msg::PoseStamped>(
         "/vrpn/Object_base", 100, std::bind(&MinimalSubscriber::topic_callback, this, _1));
   }
-ssssss
+
 private:
   void topic_callback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
         // Camera position in map frame
