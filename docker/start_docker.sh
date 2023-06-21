@@ -95,16 +95,6 @@ if [ "${MODE}" == "server" ]; then
     MODE=interactive
 fi
 
-#Add volume
-    
-docker volume rm ros2_ws
-docker volume create --driver local \
---opt type="none" \
---opt device="${PWD}/../src/ros2_ws" \
---opt o="bind" \
-"ros2_ws"
-
-FWD_ARGS+=(--volume="ros2_ws:/home/ros/ros2_ws:rw")
 
 # Start docker using aica
 aica-docker \
