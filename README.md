@@ -17,7 +17,7 @@ bash start_docker.sh connect
 cd ros1_ws
 source /opt/ros/noetic/setup.bash
 source devel/setup.bash
-roslaunch talk opti_main.launch 
+roslaunch optitrack_publisher opti_main.launch 
 
 Terminal #2
 cd Optitrack_ROS2/docker
