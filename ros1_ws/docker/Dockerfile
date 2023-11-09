@@ -45,15 +45,13 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
     then export CMAKE_CXX_FLAGS="-march=native -faligned-new" ; fi
     
 # Install Optitrack_ROS2
+WORKDIR /home/${USER}/ros_ws/src
+
+RUN sudo pip install zmq
+RUN sudo pip install scipy
+
+
 WORKDIR /home/${USER}
-RUN git clone --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
-RUN cp -R Optitrack_ROS2/ros1_ws/src .
-
-
-
-### Add environement variables to bashrc
-WORKDIR /home/${USER}
-
 # Give bashrc back to user
 RUN sudo chown -R ${USER}:${HOST_GID} .bashrc
 
@@ -64,7 +62,7 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
 ### Add environement variables to bashrc
 
 ### Build ros workspace
-WORKDIR /home/${USER}/ros1_ws/
+WORKDIR /home/${USER}/ros_ws/
 RUN source /opt/ros/noetic/setup.bash && rosdep install --from-paths src --ignore-src -r -y
 RUN source /opt/ros/noetic/setup.bash && rosdep install roscpp
 RUN source /opt/ros/noetic/setup.bash && catkin_make;
@@ -72,3 +70,7 @@ RUN source /opt/ros/noetic/setup.bash && catkin_make;
 
 ### Final apt clean
 RUN sudo apt update && sudo apt upgrade -y && sudo apt clean
+
+WORKDIR /home/${USER}/ros_ws/src/optitrack_publisher/src
+#ENTRYPOINT run/optitrack_client_transform.py
+

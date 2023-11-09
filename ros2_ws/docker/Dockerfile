@@ -47,15 +47,10 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
 # Install Optitrack_ROS2
 WORKDIR /home/${USER}
 RUN git clone --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
-RUN cp -R Optitrack_ROS2/src/ros1_ws/ .
+
 RUN cp -R Optitrack_ROS2/src/ros2_ws/ .
 
 
-# Install ros_bridge
-WORKDIR /home/${USER}/ros2_ws/src
-RUN git clone https://github.com/bonato47/ros1_bridge_laarc.git
-WORKDIR /home/${USER}/ros2_ws/src/ros1_bridge_laarc
-RUN git checkout -b ${ROS_DISTRO}
 
 #Cleaning the workspace
 RUN rm -r /home/${USER}/Optitrack_ROS2
@@ -70,27 +65,11 @@ RUN sudo chown -R ${USER}:${HOST_GID} .bashrc
 RUN if [ "${USE_SIMD}" = "ON" ] ; \
     then echo "export ENABLE_SIMD=ON" >> /home/${USER}/.bashrc ; fi
 
-### Add environement variables to bashrc
 
-RUN sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list' 
-RUN sudo apt install curl 
-RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-RUN sudo apt update
-RUN sudo apt install ros-noetic-ros-base -y
-# RUN sudo apt install ros-noetic-desktop-full -y
-RUN sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential 
-RUN sudo apt-get install ros-noetic-vrpn-client-ros -y
-
-### Build ros workspace
-WORKDIR /home/${USER}/ros1_ws/
-RUN source /opt/ros/noetic/setup.bash && rosdep install --from-paths src --ignore-src -r -y
-RUN source /opt/ros/noetic/setup.bash && rosdep install roscpp
-RUN source /opt/ros/noetic/setup.bash && catkin_make;
-#sudo -H apt-get install -y ros-galactic-demo-nodes-cpp
 
 ### Build ros2 workspace
 WORKDIR /home/${USER}/ros2_ws/
-RUN source /opt/ros/noetic/setup.bash && source /opt/ros/galactic/setup.bash && colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure && colcon build;
+RUN source /opt/ros/galactic/setup.bash && colcon build;
 WORKDIR /home/${USER}
 
 ### Final apt clean
