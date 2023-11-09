@@ -1,0 +1,28 @@
+<launch>
+
+    <arg name = "server"      default="128.178.145.104"/>
+    <arg name = "name_object" default="/vrpn_client_node//ball_17/pose"/>
+    <arg name = "name_base"   default="/vrpn_client_node/franka_base17/pose"/>
+    
+    <!-- vrpn Optitrack -->
+    <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
+        <rosparam subst_value="true">
+        server: $(arg server)
+        port: 3883
+        frame_id: world
+        broadcast_tf: true
+        # Must either specify refresh frequency > 0.0, or a list of trackers to create
+        refresh_tracker_frequency: 1.0
+        </rosparam>
+    </node>
+    
+    <!-- Transform to robot base -->
+    <node name="optitrack_publisher" pkg="optitrack_publisher" type="optitrack_transform_publisher" output="screen" >
+    	<rosparam subst_value="true">
+        name_object: $(arg name_object)
+        name_base: $(arg name_base)
+        </rosparam>
+    </node>
+</launch>
+
+    <!-- <rosparam file="$(find optitrack_publisher)/include/optitrack.yaml" /> -->
