@@ -1,14 +1,12 @@
 import time
 import numpy as np
 from scipy.spatial.transform import Rotation
-import rospy
 import zmq
 import struct
 import sys
 import rclpy
 from rclpy.node import Node
 
-from geometry_msgs.msg import PointStamped
 from geometry_msgs.msg import Point, Quaternion
 from geometry_msgs.msg import PoseStamped
 
@@ -113,8 +111,7 @@ def main(id_base=None, id_object=None):
     socket.bind("tcp://0.0.0.0:5511")
     socket.setsockopt(zmq.SUBSCRIBE, b"")
 
-    r = rospy.Rate(1000) # in Hz
-
+    rclcpp::Rate loop_rate(1000); // in Hz
     while rclpy.ok():
             
         data = socket.recv()

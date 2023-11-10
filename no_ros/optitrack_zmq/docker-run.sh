@@ -5,4 +5,4 @@ docker run \
 	   -h $HOSTNAME \
 	   -u root \
 	   --net host \
-	   optitrack_zmq
+	   epfl-lasa/optitrack_zmq

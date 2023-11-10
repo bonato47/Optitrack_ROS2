@@ -94,13 +94,23 @@ def main(id_base=None, id_object=None):
         # id_object = int(input("Enter the ID for the object: "))
         id_object = 1001
 
+
+
+
+# -------------------------------------------------------------------
+
+
+
+# change this to publish in zmq
     # Init ROS
-    rospy.init_node("optitrack_client", anonymous=True)
+    rospy.init_node("optitrack_client", anonymous=True)#<-----------------------------------------------------------------ROS
 
     base_pub = rospy.Publisher('base_position_' + str(id_base), PoseStamped, queue_size=1)
     object_pub = rospy.Publisher('object_position_'+ str(id_object), PoseStamped, queue_size=1)
     object_transform_pub = rospy.Publisher('object_position_transform_'+ str(id_object), PoseStamped, queue_size=1)
+    r = rospy.Rate(1000) # in Hz
 
+# --------------------------------------------------------------------------
 
     context = zmq.Context()
     socket = context.socket(zmq.SUB)
@@ -108,13 +118,9 @@ def main(id_base=None, id_object=None):
     socket.bind("tcp://0.0.0.0:5511")
     socket.setsockopt(zmq.SUBSCRIBE, b"")
 
-    r = rospy.Rate(1000) # in Hz
 
 
-
-
-
-    while not rospy.is_shutdown():
+    while not rospy.is_shutdown():#<-----------------------------------------------------------------ROS
     
         data = socket.recv()
         body_datas = process_data_chunks(data)
@@ -133,19 +139,19 @@ def main(id_base=None, id_object=None):
             if body_data[0] == id_base:
                 data_position.header.frame_id = "base"+ str(id_base)
                 base_position = data_position
-                base_pub.publish(base_position)
+                base_pub.publish(base_position) #<-----------------------------------------------------------------ROS
 
             # If we received object position
             if body_data[0] == id_object:
                 data_position.header.frame_id = "object"+ str(id_object)
                 object_position = data_position
-                object_pub.publish(object_position)
+                object_pub.publish(object_position)#<-----------------------------------------------------------------ROS
         
         object_transform_position= transform_new_base(base_position,object_position)
         
-        object_transform_pub.publish(object_transform_position)
+        object_transform_pub.publish(object_transform_position)#<-----------------------------------------------------------------ROS
 
-        r.sleep()
+        r.sleep() #<-----------------------------------------------------------------ROS
 
     socket.close()
 

@@ -1,8 +1,0 @@
-
-
-
-vrpn_client_node: {
-    name_object: "/vrpn_client_node/ball_17/pose",
-    name_base  : "/vrpn_client_node/franka_base17/pose",
-    server: "128.178.145.114",
-}

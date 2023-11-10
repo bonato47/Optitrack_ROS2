@@ -20,6 +20,6 @@ RUN mkdir run
 RUN make all
 
 WORKDIR /optitrack
-ENTRYPOINT export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib && run/OptiTrackZMQBridge
+#ENTRYPOINT export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PWD/lib && run/OptiTrackZMQBridge
 
 

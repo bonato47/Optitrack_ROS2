@@ -1,7 +1,7 @@
 #!/bin/bash
-IMAGE_NAME="epfl-lasa/optitrack_noros1"
+IMAGE_NAME="epfl-lasa/optitrack_zmq"
 CONTAINER_NAME="${IMAGE_NAME//[\/.]/-}"
-USERNAME="noros"
+USERNAME="optitrack"
 MODE=()
 USE_NVIDIA_TOOLKIT=false
 
@@ -78,25 +78,17 @@ if [ "${MODE}" != "connect" ]; then
 	
     # network for ros
     FWD_ARGS+=(--net host)
-    FWD_ARGS+=(--env ROS_HOSTNAME="$(hostname)")
+    #FWD_ARGS+=(--env ROS_HOSTNAME="$(hostname)")
 
     # Handle GPU usage
-    [[ ${USE_NVIDIA_TOOLKIT} = true ]] && GPU_FLAG="--gpus all" || GPU_FLAG=""
+    #[[ ${USE_NVIDIA_TOOLKIT} = true ]] && GPU_FLAG="--gpus all" || GPU_FLAG=""
 
     # Other
     FWD_ARGS+=("--privileged")
 #    FWD_ARGS+=("--ros-domain-id 99")
 
 
-    # Add volume src
-    docker volume rm src
-    docker volume create --driver local \
-    --opt type="none" \
-    --opt device="${PWD}/../src/" \
-    --opt o="bind" \
-    "src"
 
-    FWD_ARGS+=(--volume="optitrack_publisher:/home/ros/ros_ws/src:rw")
 
  fi  
 # Trick aica-docker into making a server on a host network container
@@ -110,7 +102,6 @@ fi
 aica-docker \
     "${MODE}" \
     "${IMAGE_NAME}" \
-    -u "${USERNAME}" \
     -n "${CONTAINER_NAME}" \
     ${GPU_FLAG} \
     "${FWD_ARGS[@]}" \
