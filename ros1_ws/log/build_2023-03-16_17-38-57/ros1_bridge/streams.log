@@ -1,0 +1,42 @@
+[0.013s] Invoking command in '/home/bonato/Documents/Optitrack_ROS2/src/Ros2_ws/build/ros1_bridge': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /usr/bin/cmake /home/bonato/Documents/Optitrack_ROS2/src/Ros2_ws/src/ros1_bridge -DCMAKE_INSTALL_PREFIX=/home/bonato/Documents/Optitrack_ROS2/src/Ros2_ws/install/ros1_bridge
+[0.061s] -- The C compiler identification is GNU 9.4.0
+[0.106s] -- The CXX compiler identification is GNU 9.4.0
+[0.110s] -- Check for working C compiler: /usr/bin/cc
+[0.172s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.173s] -- Detecting C compiler ABI info
+[0.232s] -- Detecting C compiler ABI info - done
+[0.241s] -- Detecting C compile features
+[0.242s] -- Detecting C compile features - done
+[0.244s] -- Check for working CXX compiler: /usr/bin/c++
+[0.312s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.313s] -- Detecting CXX compiler ABI info
+[0.345s] Invoked command in '/home/bonato/Documents/Optitrack_ROS2/src/Ros2_ws/build/ros1_bridge' returned '-2': CMAKE_PREFIX_PATH=/opt/ros/foxy:${CMAKE_PREFIX_PATH} /usr/bin/cmake /home/bonato/Documents/Optitrack_ROS2/src/Ros2_ws/src/ros1_bridge -DCMAKE_INSTALL_PREFIX=/home/bonato/Documents/Optitrack_ROS2/src/Ros2_ws/install/ros1_bridge
+[0.347s] Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/colcon_parallel_executor/executor/parallel.py", line 67, in execute
+    loop.run_until_complete(future)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 603, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 570, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 1823, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib/python3.8/selectors.py", line 468, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/colcon_core/executor/__init__.py", line 91, in __call__
+    rc = await self.task(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/colcon_core/task/__init__.py", line 93, in __call__
+    return await task_method(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/colcon_ros/task/ament_cmake/build.py", line 59, in build
+    rc = await extension.build(
+  File "/usr/lib/python3/dist-packages/colcon_cmake/task/cmake/build.py", line 87, in build
+    rc = await self._reconfigure(args, env)
+  File "/usr/lib/python3/dist-packages/colcon_cmake/task/cmake/build.py", line 182, in _reconfigure
+    buildfile = get_buildfile(cmake_cache)
+  File "/usr/lib/python3/dist-packages/colcon_cmake/task/cmake/__init__.py", line 112, in get_buildfile
+    if 'Ninja' in generator:
+TypeError: argument of type 'NoneType' is not iterable

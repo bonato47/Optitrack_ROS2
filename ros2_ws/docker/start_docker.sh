@@ -1,5 +1,5 @@
 #!/bin/bash
-IMAGE_NAME="epfl-lasa/optitrack_ros1and2"
+IMAGE_NAME="epfl-lasa/optitrack_ros2"
 CONTAINER_NAME="${IMAGE_NAME//[\/.]/-}"
 USERNAME="ros2"
 MODE=()
@@ -86,6 +86,16 @@ if [ "${MODE}" != "connect" ]; then
     # Other
     FWD_ARGS+=("--privileged")
 #    FWD_ARGS+=("--ros-domain-id 99")
+
+    # Add volume path_planning
+    docker volume rm optitrack_publisher
+    docker volume create --driver local \
+    --opt type="none" \
+    --opt device="${PWD}/../src/optitrack_publisher" \
+    --opt o="bind" \
+    "optitrack_publisher"
+
+    FWD_ARGS+=(--volume="optitrack_publisher:/home/ros2/ros2_ws/src/optitrack_publisher:rw")
 fi
 
     

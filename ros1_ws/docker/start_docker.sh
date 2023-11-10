@@ -1,7 +1,7 @@
 #!/bin/bash
-IMAGE_NAME="epfl-lasa/optitrack_ros1"
+IMAGE_NAME="epfl-lasa/optitrack_ros1and2"
 CONTAINER_NAME="${IMAGE_NAME//[\/.]/-}"
-USERNAME="ros"
+USERNAME="ros2"
 MODE=()
 USE_NVIDIA_TOOLKIT=false
 
@@ -85,20 +85,19 @@ if [ "${MODE}" != "connect" ]; then
 
     # Other
     FWD_ARGS+=("--privileged")
-#    FWD_ARGS+=("--ros-domain-id 99")
 
-
-    # Add volume path_planning
-    docker volume rm optitrack_publisher
+    # Add volume src
+    docker volume rm src
     docker volume create --driver local \
     --opt type="none" \
-    --opt device="${PWD}/../src/optitrack_publisher" \
+    --opt device="${PWD}/../src/" \
     --opt o="bind" \
-    "optitrack_publisher"
+    "src"
 
-    FWD_ARGS+=(--volume="optitrack_publisher:/home/ros/ros_ws/src/optitrack_publisher:rw")
+    FWD_ARGS+=(--volume="optitrack_publisher:/home/ros/ros_ws/src:rw")
+fi
 
- fi  
+    
 # Trick aica-docker into making a server on a host network container
 if [ "${MODE}" == "server" ]; then
     FWD_ARGS+=("--detach")

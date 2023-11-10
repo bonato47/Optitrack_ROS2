@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name and base and options
-IMAGE_NAME=epfl-lasa/optitrack_ros1and2                         # Chose any name for your image (but make sure to report it in start_docker)
+IMAGE_NAME=epfl-lasa/optitrack_ros2                         # Chose any name for your image (but make sure to report it in start_docker)
 ROS_DISTRO=galactic                                         # Possible: noetic, melodic
 USE_SIMD=OFF                                              # Possible: ON, OFF
 BASE_IMAGE=ghcr.io/aica-technology/ros2-ws:${ROS_DISTRO}   # Do not modify

@@ -39,21 +39,18 @@ RUN sudo apt-get update && sudo apt-get install -y \
     alsa-utils \
     netbase \
     && sudo apt-get upgrade -y && sudo apt-get clean
+    
+
+RUN sudo pip install zmq
+RUN sudo pip install scipy
 #RUN sudo apt update && sudo apt install -y ros-core-dev -y
 # Handle SIMD option
 RUN if [ "${USE_SIMD}" = "ON" ] ; \ 
-    then export CMAKE_CXX_FLAGS="-march=native -faligned-new" ; fi
-    
-# Install Optitrack_ROS2
-WORKDIR /home/${USER}
-RUN git clone --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
-
-RUN cp -R Optitrack_ROS2/ros2_ws/src .
+    then export CMAKE_CXX_FLAGS="-march=native -faligned-new" ; fi    
 
 
 
-#Cleaning the workspace
-RUN rm -r /home/${USER}/Optitrack_ROS2
+
 
 ### Add environement variables to bashrc
 WORKDIR /home/${USER}

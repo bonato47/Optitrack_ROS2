@@ -38,6 +38,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
     less \
     alsa-utils \
     netbase \
+    ros-noetic-vrpn-client-ros \
     && sudo apt-get upgrade -y && sudo apt-get clean
 #RUN sudo apt update && sudo apt install -y ros-core-dev -y
 # Handle SIMD option
@@ -45,13 +46,16 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
     then export CMAKE_CXX_FLAGS="-march=native -faligned-new" ; fi
     
 # Install Optitrack_ROS2
-WORKDIR /home/${USER}/ros_ws/src
-
-RUN sudo pip install zmq
-RUN sudo pip install scipy
-
-
 WORKDIR /home/${USER}
+RUN git clone --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
+RUN cp -R Optitrack_ROS2/src/ros_ws/ .
+
+#Cleaning the workspace
+RUN rm -r /home/${USER}/Optitrack_ROS2
+
+### Add environement variables to bashrc
+WORKDIR /home/${USER}
+
 # Give bashrc back to user
 RUN sudo chown -R ${USER}:${HOST_GID} .bashrc
 
@@ -61,16 +65,17 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
 
 ### Add environement variables to bashrc
 
+RUN sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential 
+
+
 ### Build ros workspace
 WORKDIR /home/${USER}/ros_ws/
 RUN source /opt/ros/noetic/setup.bash && rosdep install --from-paths src --ignore-src -r -y
 RUN source /opt/ros/noetic/setup.bash && rosdep install roscpp
 RUN source /opt/ros/noetic/setup.bash && catkin_make;
+#sudo -H apt-get install -y ros-galactic-demo-nodes-cpp
 
+WORKDIR /home/${USER}
 
 ### Final apt clean
 RUN sudo apt update && sudo apt upgrade -y && sudo apt clean
-
-WORKDIR /home/${USER}/ros_ws/src/optitrack_publisher/src
-#ENTRYPOINT run/optitrack_client_transform.py
-

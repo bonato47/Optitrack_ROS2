@@ -213,7 +213,7 @@ include_directories(
 #include/qpOASES/qpOASES.cpp
 
 
-add_executable(optitrack_transform_publisher src/optitrack_transform_publisher.cpp)
+add_executable(optitrack_transform_publisher src/optitrack_client_transform.py)
 target_link_libraries(optitrack_transform_publisher ${catkin_LIBRARIES})
 
 
