@@ -1,7 +1,7 @@
 #!/bin/bash
-IMAGE_NAME="epfl-lasa/optitrack_ros1"
+IMAGE_NAME="epfl-lasa/optitrack_noros1"
 CONTAINER_NAME="${IMAGE_NAME//[\/.]/-}"
-USERNAME="ros"
+USERNAME="noros"
 MODE=()
 USE_NVIDIA_TOOLKIT=false
 

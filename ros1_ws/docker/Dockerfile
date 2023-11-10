@@ -48,7 +48,8 @@ RUN if [ "${USE_SIMD}" = "ON" ] ; \
 # Install Optitrack_ROS2
 WORKDIR /home/${USER}
 RUN git clone --depth 1 https://github.com/bonato47/Optitrack_ROS2.git
-RUN cp -R Optitrack_ROS2/src/ros_ws/ .
+
+RUN cp -R Optitrack_ROS2/ros1_ws/src/ ros_ws/src/
 
 #Cleaning the workspace
 RUN rm -r /home/${USER}/Optitrack_ROS2

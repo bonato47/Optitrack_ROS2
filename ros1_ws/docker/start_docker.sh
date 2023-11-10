@@ -1,7 +1,7 @@
 #!/bin/bash
-IMAGE_NAME="epfl-lasa/optitrack_ros1and2"
+IMAGE_NAME="epfl-lasa/optitrack_ros1"
 CONTAINER_NAME="${IMAGE_NAME//[\/.]/-}"
-USERNAME="ros2"
+USERNAME="ros"
 MODE=()
 USE_NVIDIA_TOOLKIT=false
 
@@ -94,7 +94,7 @@ if [ "${MODE}" != "connect" ]; then
     --opt o="bind" \
     "src"
 
-    FWD_ARGS+=(--volume="optitrack_publisher:/home/ros/ros_ws/src:rw")
+    FWD_ARGS+=(--volume="src:/home/ros/ros_ws/src:rw")
 fi
 
     

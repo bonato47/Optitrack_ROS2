@@ -78,14 +78,14 @@ int main(int argc, char **argv)
     Nh.getParam("/optitrack_publisher/name_object", name_object);
     Nh.getParam("/optitrack_publisher/name_base", name_base);
    
-
+    string name_object_transform = name_object+ "_transform";
     printf("\n%s\n",name_base.c_str());
 
     ros::Subscriber sub_BF1 = Nh.subscribe(name_base, 1000, &vrpn::CC_vrpn_base, &object1);
     
     ros::Subscriber sub_obj1 = Nh.subscribe(name_object, 1000, &vrpn::CC_vrpn_obj, &object1);
     
-    ros::Publisher pub1 = Nh.advertise<geometry_msgs::PoseStamped>("/vrpn/Object_base", 1000);
+    ros::Publisher pub1 = Nh.advertise<geometry_msgs::PoseStamped>(name_object_transform, 1000);
    
     ros::Rate loop_rate(400);
 
