@@ -1,8 +1,10 @@
 <launch>
 
+
+    
     <arg name = "server"      default="128.178.145.104"/>
-    <arg name = "name_object" default="/vrpn_client_node/darko_target_box/pose"/>
-    <arg name = "name_base"   default="/vrpn_client_node/franka_base19/pose"/>
+    <arg name = "name_object" default="/vrpn_client_node//darko_target_box/pose"/>
+    <arg name = "name_base"   default="/vrpn_client_node/franka_base16/pose"/>
     
     <!-- vrpn Optitrack -->
     <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
@@ -25,4 +27,4 @@
     </node>
 </launch>
 
-    <!-- <rosparam file="$(find optitrack_publisher)/include/optitrack.yaml" /> -->
+

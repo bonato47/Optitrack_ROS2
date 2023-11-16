@@ -75,9 +75,10 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "objectbase");
     ros::NodeHandle Nh;
 
-    Nh.getParam("/optitrack_publisher/name_object", name_object);
-    Nh.getParam("/optitrack_publisher/name_base", name_base);
-   
+    Nh.getParam("/vrpn_client_node/name_object", name_object);
+    Nh.getParam("/vrpn_client_node/name_base", name_base);
+
+
     string name_object_transform = name_object+ "_transform";
     printf("\n%s\n",name_base.c_str());
 

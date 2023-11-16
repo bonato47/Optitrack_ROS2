@@ -74,9 +74,17 @@ WORKDIR /home/${USER}/ros_ws/
 RUN source /opt/ros/noetic/setup.bash && rosdep install --from-paths src --ignore-src -r -y
 RUN source /opt/ros/noetic/setup.bash && rosdep install roscpp
 RUN source /opt/ros/noetic/setup.bash && catkin_make;
-#sudo -H apt-get install -y ros-galactic-demo-nodes-cpp
 
-WORKDIR /home/${USER}
 
+WORKDIR /home/${USER}/ros_ws/
+# Source the ROS setup file and run your roslaunch command when the container starts
+
+RUN echo "source /opt/ros/noetic/setup.bash && \
+                  source devel/setup.bash && \
+                  roslaunch optitrack_publisher optitrack_with_transform_to_base.launch" >> /home/${USER}/.bashrc ;
+                  
 ### Final apt clean
 RUN sudo apt update && sudo apt upgrade -y && sudo apt clean
+
+
+
