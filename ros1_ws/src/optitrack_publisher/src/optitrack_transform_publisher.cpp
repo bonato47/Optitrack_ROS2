@@ -69,8 +69,8 @@ vrpn object1, object2, object3, object4;
 
 int main(int argc, char **argv)
 {
-    string name_object;//= "/vrpn_client_node/ball_17/pose";
-    string name_base;// = "/vrpn_client_node/franka_base17/pose";
+    string name_object;
+    string name_base;
     //Initialisation of the Ros Node (Service, Subscrber and Publisher)
     ros::init(argc, argv, "objectbase");
     ros::NodeHandle Nh;
