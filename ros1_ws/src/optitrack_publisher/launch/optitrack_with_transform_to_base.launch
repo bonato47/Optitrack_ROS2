@@ -1,6 +1,6 @@
 <launch>    
     <arg name = "server"      default="128.178.145.104"/>
-    <arg name = "list_object" default="['/vrpn_client_node/darko_target_box/pose','/truc']"/>
+    <arg name = "list_object" default="['/vrpn_client_node/darko_target_box/pose']"/>
     <arg name = "name_base"   default="/vrpn_client_node/franka_base16/pose"/>
 
     <!-- vrpn Optitrack -->
