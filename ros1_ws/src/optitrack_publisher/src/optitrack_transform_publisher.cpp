@@ -103,43 +103,63 @@ class vrpn {       // The class
 
 };
 
-vrpn object1, object2, object3, object4;
+
+std::vector<vrpn> list_objects;
+std::vector<ros::Publisher> list_pub;
+std::vector<ros::Subscriber> list_sub_base;
+std::vector<ros::Subscriber> list_sub;
 
 int main(int argc, char **argv)
 {
-    string name_object;
     string name_base;
+    std::vector<std::string> subscribedTopics;
     //Initialisation of the Ros Node (Service, Subscrber and Publisher)
     ros::init(argc, argv, "objectbase");
     ros::NodeHandle Nh;
 
-    Nh.getParam("/optitrack_publisher/name_object", name_object);
     Nh.getParam("/optitrack_publisher/name_base", name_base);
+    Nh.getParam("/optitrack_publisher/list_object", subscribedTopics);
 
 
-    string name_object_transform = name_object+ "_transform";
-    printf("\n%s\n",name_base.c_str());
+    ROS_INFO("Base topic is:");
+    ROS_INFO("%s", name_base.c_str());
 
-    ros::Subscriber sub_BF1 = Nh.subscribe(name_base, 1000, &vrpn::CC_vrpn_base, &object1);
+    // Subscribe to each topic in the list
+    ROS_INFO("List of topics contains:");
+
+    for (const auto& topic : subscribedTopics) {
+        ROS_INFO("%s", topic.c_str());
+
+        vrpn object;
+        list_objects.emplace_back(object);
+    }
     
-    ros::Subscriber sub_obj1 = Nh.subscribe(name_object, 1000, &vrpn::CC_vrpn_obj, &object1);
-    
-    ros::Publisher pub1 = Nh.advertise<geometry_msgs::PoseStamped>(name_object_transform, 1000);
+    // Get the length of the list
+    size_t list_n = list_objects.size();
+    for (size_t i = 0; i < list_n; ++i) {
+        list_sub_base.emplace_back(Nh.subscribe(name_base, 1000, &vrpn::CC_vrpn_base, &list_objects[i]));
+        list_sub.emplace_back(Nh.subscribe(subscribedTopics[i], 1000, &vrpn::CC_vrpn_obj, &list_objects[i]));
+        list_pub.emplace_back(Nh.advertise<geometry_msgs::PoseStamped>(subscribedTopics[i] + "_transform", 1000));
+    }
    
     ros::Rate loop_rate(400);
 
     geometry_msgs::PoseStamped msgP1;
 
-   ROS_INFO("Talker running");
-   ROS_WARN("WARNING! Verify that Y-up frame is applied on motive");
 
     //begin the ros loop
+    ROS_WARN("WARNING! Verify that Y-up frame is applied on motive");
     double count = 0;
     while (ros::ok())
     {
-        object1.transform_new_base();
-        
-        pub1.publish(object1.msgP);
+
+        for (size_t i = 0; i < list_n; ++i) {
+            vrpn object = list_objects[i];
+            object.transform_new_base();
+
+            ros::Publisher pub = list_pub[i];
+            pub.publish(object.msgP);
+        }
 
         ++count;
         //--------------------------------------------------------------------
