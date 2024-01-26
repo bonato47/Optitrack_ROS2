@@ -31,8 +31,20 @@ class vrpn {       // The class
     void CC_vrpn_obj(const geometry_msgs::PoseStamped::ConstPtr msg) {  // Method/function defined inside the class
         pos_obj    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
         quat_obj   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
+        msgP.header   = {msg->header};
+
     } 
-    void transform_new_base() {  // Method/function defined inside the class
+    void transform_new_base(std:: string inputString) {  // Method/function defined inside the class
+    
+   	// Check if the string is long enough
+   	 if (inputString.length() >= 24) {
+        	// Erase the first 5 characters
+        	inputString.erase(0, 18);
+
+        	// Erase the last 4 characters
+        	inputString.erase(inputString.length() - 5);
+        }
+    	
         // transform the quaternion to rotation matrix
         Quaterniond q;
         q.x() = quat[0];
@@ -91,6 +103,7 @@ class vrpn {       // The class
         Quaterniond q_out(R_out);
         q_out.normalize();
 
+	    msgP.header.frame_id = inputString;  
         msgP.pose.position.x = M_out(0,3);
         msgP.pose.position.y = M_out(1,3);
         msgP.pose.position.z = M_out(2,3);
@@ -155,7 +168,7 @@ int main(int argc, char **argv)
 
         for (size_t i = 0; i < list_n; ++i) {
             vrpn object = list_objects[i];
-            object.transform_new_base();
+            object.transform_new_base(name_base.c_str());
 
             ros::Publisher pub = list_pub[i];
             pub.publish(object.msgP);
