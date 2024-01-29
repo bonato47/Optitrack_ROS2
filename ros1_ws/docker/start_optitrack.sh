@@ -79,6 +79,8 @@ if [ "${MODE}" != "connect" ]; then
     # network for ros
     FWD_ARGS+=(--net host)
     FWD_ARGS+=(--env ROS_HOSTNAME="$(hostname)")
+    #HOST_IP=$(hostname -I | cut -d' ' -f1)
+    FWD_ARGS+=(--env ROS_IP="$ROS_IP")
 
     # Handle GPU usage
     [[ ${USE_NVIDIA_TOOLKIT} = true ]] && GPU_FLAG="--gpus all" || GPU_FLAG=""
@@ -87,14 +89,14 @@ if [ "${MODE}" != "connect" ]; then
     FWD_ARGS+=("--privileged")
 
     # Add volume src
-    docker volume rm src
+    docker volume rm optitrack
     docker volume create --driver local \
     --opt type="none" \
     --opt device="${PWD}/../src/" \
     --opt o="bind" \
-    "src"
+    "optitrack"
 
-    FWD_ARGS+=(--volume="src:/home/ros/ros_ws/src:rw")
+    FWD_ARGS+=(--volume="optitrack:/home/ros/ros_ws/src:rw")
 fi
 
     

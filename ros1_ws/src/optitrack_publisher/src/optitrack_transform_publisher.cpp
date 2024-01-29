@@ -171,7 +171,7 @@ geometry_msgs::PoseStamped msgP1;
         
         for (size_t i = 0; i < list_n; ++i) {
             if(list_objects[i].to_publish){
-                list_objects[i].transform_new_base();
+                list_objects[i].transform_new_base(name_base.c_str());
 
                 list_objects[i].msgP.header.stamp = list_objects[i].time;
                 list_pub[i].publish(list_objects[i].msgP);
