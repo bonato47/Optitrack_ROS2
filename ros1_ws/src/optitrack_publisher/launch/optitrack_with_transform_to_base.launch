@@ -1,7 +1,9 @@
 <launch>    
     <arg name = "server"      default="128.178.145.104"/>
-    <arg name = "list_object" default="['/vrpn_client_node/cam_grasp/pose']"/>
-    <arg name = "name_base"   default="/vrpn_client_node/franka_base16/pose"/>
+    <arg name = "list_object" default="['/vrpn_client_node/TargetRobetarme/pose']"/>
+    
+    <arg name = "name_base_optitrack"   default="base"/>
+    <arg name = "name_base"   default="/vrpn_client_node/BaseUR5/pose"/>
 
     <!-- vrpn Optitrack -->
     <node pkg="vrpn_client_ros" type="vrpn_client_node" name="vrpn_client_node" output="screen">
@@ -22,6 +24,7 @@
     	<rosparam subst_value="true">
         list_object: $(arg list_object)
         name_base: $(arg name_base)
+        name_base_optitrack: $(arg name_base_optitrack)
         </rosparam>
     </node>
 </launch>

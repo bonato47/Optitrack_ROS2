@@ -38,7 +38,17 @@ class vrpn {       // The class
         time = msg->header.stamp;
         to_publish = true;
     } 
-    void transform_new_base() {  // Method/function defined inside the class
+    void transform_new_base(std:: string inputString) {  // Method/function defined inside the class
+    
+   	// Check if the string is long enough
+   	 if (inputString.length() >= 24) {
+        	// Erase the first 5 characters
+        	inputString.erase(0, 18);
+
+        	// Erase the last 4 characters
+        	inputString.erase(inputString.length() - 5);
+        }
+    	
         // transform the quaternion to rotation matrix
         Quaterniond q;
         q.x() = quat[0];
@@ -97,6 +107,7 @@ class vrpn {       // The class
         Quaterniond q_out(R_out);
         q_out.normalize();
 
+	    msgP.header.frame_id = inputString;  
         msgP.pose.position.x = M_out(0,3);
         msgP.pose.position.y = M_out(1,3);
         msgP.pose.position.z = M_out(2,3);
