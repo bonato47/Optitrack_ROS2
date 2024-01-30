@@ -44,7 +44,7 @@ class vrpn {       // The class
         	// Erase the last 4 characters
         	inputString.erase(inputString.length() - 5);
         }
-    	
+    	inputString ="base";
         // transform the quaternion to rotation matrix
         Quaterniond q;
         q.x() = quat[0];
