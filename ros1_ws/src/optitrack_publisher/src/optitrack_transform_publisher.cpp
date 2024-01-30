@@ -23,16 +23,20 @@ class vrpn {       // The class
     Vector3d pos, pos_obj;
     Vector4d quat, quat_obj;
     geometry_msgs::PoseStamped msgP;
+    ros::Time time;
+    bool to_publish = false;
 
     void CC_vrpn_base(const geometry_msgs::PoseStamped::ConstPtr msg) {  // Method/function defined inside the class
         pos    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
         quat   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
+        //printf("Timestamp franka: %u\n", msg->header.stamp.nsec);
+
     } 
     void CC_vrpn_obj(const geometry_msgs::PoseStamped::ConstPtr msg) {  // Method/function defined inside the class
         pos_obj    = {msg->pose.position.x,msg->pose.position.y,msg->pose.position.z};
         quat_obj   = {msg->pose.orientation.x,msg->pose.orientation.y,msg->pose.orientation.z,msg->pose.orientation.w};
-        msgP.header   = {msg->header};
-
+        time = msg->header.stamp;
+        to_publish = true;
     } 
     void transform_new_base(std:: string inputString) {  // Method/function defined inside the class
     
@@ -65,9 +69,9 @@ class vrpn {       // The class
         // currently pose tracking works in Y-up without it 
         // MatrixXd M_rot(4,4);
         // M_rot << 1, 0, 0, 0,
-        //          0, 0, -1, 0,
-        //          0, 1, 0, 0,
-        //          0, 0, 0, 1;
+                 //          0, 0, -1, 0,
+                 //          0, 1, 0, 0,
+                 //          0, 0, 0, 1;
 
         // Inverse * object => to have the position relatively of the base of the robot
         // Vector4d objtemp ={obj[0],obj[1],obj[2],1};
@@ -150,31 +154,32 @@ int main(int argc, char **argv)
     // Get the length of the list
     size_t list_n = list_objects.size();
     for (size_t i = 0; i < list_n; ++i) {
-        list_sub_base.emplace_back(Nh.subscribe(name_base, 1000, &vrpn::CC_vrpn_base, &list_objects[i]));
-        list_sub.emplace_back(Nh.subscribe(subscribedTopics[i], 1000, &vrpn::CC_vrpn_obj, &list_objects[i]));
-        list_pub.emplace_back(Nh.advertise<geometry_msgs::PoseStamped>(subscribedTopics[i] + "_transform", 1000));
+        list_sub_base.emplace_back(Nh.subscribe(name_base, 1, &vrpn::CC_vrpn_base, &list_objects[i]));
+        list_sub.emplace_back(Nh.subscribe(subscribedTopics[i], 1, &vrpn::CC_vrpn_obj, &list_objects[i]));
+        list_pub.emplace_back(Nh.advertise<geometry_msgs::PoseStamped>(subscribedTopics[i] + "_transform", 1));
     }
-   
-    ros::Rate loop_rate(400);
+    // Set as 1000 in order to process any optitrack frquency
+    ros::Rate loop_rate(1000);
 
-    geometry_msgs::PoseStamped msgP1;
+geometry_msgs::PoseStamped msgP1;
 
 
     //begin the ros loop
     ROS_WARN("WARNING! Verify that Y-up frame is applied on motive");
-    double count = 0;
     while (ros::ok())
     {
-
+        
         for (size_t i = 0; i < list_n; ++i) {
-            vrpn object = list_objects[i];
-            object.transform_new_base(name_base.c_str());
+            if(list_objects[i].to_publish){
+                list_objects[i].transform_new_base(name_base.c_str());
 
-            ros::Publisher pub = list_pub[i];
-            pub.publish(object.msgP);
+                list_objects[i].msgP.header.stamp = list_objects[i].time;
+                list_pub[i].publish(list_objects[i].msgP);
+                list_objects[i].to_publish = false;
+            }
         }
 
-        ++count;
+        
         //--------------------------------------------------------------------
         ros::spinOnce();        
         loop_rate.sleep();  

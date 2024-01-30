@@ -1,6 +1,0 @@
-.git*
-install_docker.sh
-build_docker.sh
-start_docker.sh
-Dockerfile
-README.md
