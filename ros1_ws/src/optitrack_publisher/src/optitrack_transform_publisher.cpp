@@ -89,15 +89,31 @@ class vrpn {       // The class
         q_obj.z() = quat_obj[2];
         q_obj.w() = quat_obj[3];    
         Matrix3d R_obj = q_obj.toRotationMatrix();
-        MatrixXd M_obj(4,4), M_out(4,4);
+        MatrixXd M_obj(4,4), M_corr(4,4), M_out(4,4);
         M_obj << R_obj(0,0),R_obj(0,1),R_obj(0,2),pos_obj[0],
               R_obj(1,0),R_obj(1,1),R_obj(1,2),pos_obj[1],
               R_obj(2,0),R_obj(2,1),R_obj(2,2),pos_obj[2],
               0,0,0,1;
 
 
+        // M_corr is used if you want to correct the error between motive and real frames of the base
+        // See X2 in https://github.com/epfl-lasa/hand_eye_calibration
+        bool correction = true;
+        if(correction){
+            M_corr <<  0.99422465,  0.00122991, 0.10731181, -0.00748792,
+                     -0.00237186,  0.99994191, 0.01051441,  0.01285075,
+                     -0.10729264, -0.01070821, 0.99416982,  0.00547669,
+                      0,           0,          0,           1;
+        }
+        else{
+            M_corr << 1, 0, 0, 0,
+                     0, 1, 0, 0,
+                     0, 0, 1, 0,
+                     0, 0, 0, 1;
+        }
+
         //M_out = M_rot.inverse()*M.inverse()*Mo;
-        M_out = M.inverse()*M_obj;
+        M_out = M_corr.inverse()*M.inverse()*M_obj;
 
         Matrix3d R_out;
         R_out << M_out(0,0),M_out(0,1),M_out(0,2),
